@@ -6,19 +6,24 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/27 14:20:59 by sgath             #+#    #+#              #
-#    Updated: 2021/04/27 14:21:02 by sgath            ###   ########.fr        #
+#    Updated: 2021/04/29 21:33:04 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		phonebook.cpp
+SRCS =		phonebook.cpp \
+			contact.cpp \
+			main.cpp
+			
 
-INCLUDES =	phonebook.hpp
+INCLUDES =	phonebook.hpp \
+			contact.hpp
 
 OBJ =		$(SRCS:.s=.o)
 
 NAME =		PhoneBook
 
-FLAGS =		-Wall -Wextra -Werror
+FLAGS =		-Wall -Wextra 
+#-Werror
 
 .PHONY: 	all clean fclean re
 

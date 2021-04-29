@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 14:21:40 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 21:27:31 by sgath            ###   ########.fr       */
+/*   Created: 2021/04/29 21:22:11 by sgath             #+#    #+#             */
+/*   Updated: 2021/04/29 21:25:24 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
-# include <iostream>
-# include <iomanip>
 # include <string>
-# include "contact.hpp"
 
-class StorePhonebook{
+class Contact{
 	public:
-			explicit StorePhonebook() : count(0)
+			explicit Contact() : index(0)
+			{
+				for (int i = 0; i <= 11; i++)
+					this->data_phonebook[i] = std::string();
+			}
+			~Contact()
 			{}
-			~StorePhonebook()
-			{}
-			void greeting_title();
-			void add_contact();
-			void search_contact();
-			void exit_phonebook();
-			void choice_comand();
+
+			void add_new_contact();
+			void search_contact(int i);
+			void print_index(std::string i);
+			
 	private:
-			Contact	new_contact[8];
-			int		count;
+			std::string	data_phonebook[11];
+			int			index;
 };
 
 #endif
