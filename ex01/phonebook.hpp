@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:21:40 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 21:27:31 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/29 22:08:29 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class StorePhonebook{
 			void search_contact();
 			void exit_phonebook();
 			void choice_comand();
+			//void details_contact();
+			//void print_index(int i);
 	private:
 			Contact	new_contact[8];
 			int		count;

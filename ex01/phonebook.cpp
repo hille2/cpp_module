@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   methods_phonebook.cpp                              :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:38:15 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 21:28:22 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/29 22:08:43 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
 
 void	StorePhonebook::greeting_title(void)
 {
@@ -46,11 +47,14 @@ void	StorePhonebook::add_contact(void){
 }
 
 void	StorePhonebook::search_contact(void){
+	int i = -1;
 	std::cout << "=============================================" << std::endl;
 	std::cout << "|  index   |first name|last  name| nickname |" << std::endl;
 	std::cout << "=============================================" << std::endl;
-	for (int i = 0; i < count; i++)
+	while (++i < count)
 		new_contact[i].search_contact(i);
+	if (i != 0)
+		Contact.details_contact();
 	std::cout <<std::endl;
 }
 

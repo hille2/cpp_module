@@ -6,14 +6,20 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:26:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 21:32:39 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/29 22:07:04 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void	Contact::add_new_contact(void){
 
+Contact::Contact(){
+	this->index = 0;
+	for (int i = 0; i <= 11; i++)
+		this->data_phonebook[i] = std::string();
+}
+
+void	Contact::add_new_contact(void){
 	std::cout << "first_name: ";
 	std::getline(std::cin, data_phonebook[0]);
 	while (data_phonebook[0].length() == 0){
@@ -70,32 +76,45 @@ static void	print_format(std::string data)
 	std::cout << "|";
 }
 
-void
-	Contact::print_index(std::string i){
-		std::cout <<std::endl;
+void	Contact::print_index(int i){
+	//std::cout << i << std::endl;
+	std::cout << "first_name: " << data_phonebook[i][0] <<std::endl;
+	std::cout << "last_name: " << data_phonebook[i][1] <<std::endl;
+	std::cout << "nickname: " << data_phonebook[i][2] <<std::endl;
+	std::cout << "login: " << data_phonebook[i][3] <<std::endl;
+	std::cout << "postal_address: " << data_phonebook[i][4] <<std::endl;
+	std::cout << "email_address: " << data_phonebook[i][5] <<std::endl;
+	std::cout << "phone_number: " << data_phonebook[i][6] <<std::endl;
+	std::cout << "birthday_date: " << data_phonebook[i][7] <<std::endl;
+	std::cout << "favorite_meal: " << data_phonebook[i][8] <<std::endl;
+	std::cout << "underwear_color: " << data_phonebook[i][9] <<std::endl;
+	std::cout << "darkest_secret: " << data_phonebook[i][10] <<std::endl;
 }
 
-void	Contact::search_contact(int i){
+void	Contact::details_contact(){
 	std::string next;
-	this->index = i;
-	std::cout <<"|" << index << "         |";
-	print_format(data_phonebook[0]);
-	print_format(data_phonebook[1]);
-	print_format(data_phonebook[2]);
-	std::cout <<std::endl;
 	while (1)
 	{
-		std::cout << "to see the Contactin more detail, select the index" << std::endl;
+		std::cout << "to see the contact in more detail, select the index" << std::endl;
 		std::cout << "or enter a 'SKIP' to continue working" << std::endl;
 		std::getline(std::cin, next);
 		if (next == "SKIP")
 			return;
 		if (!next[1] && next[0] >= '0' && next[0] <= '8')
 		{
-			print_index(next);
+			print_index((int)next[0]);
 			return;
 		}
 		std::cout << "unknown command please try again ｡ﾟ･(>﹏<)･ﾟ｡" << std::endl;
 		std::cout << "=============================================" << std::endl;
 	}
+}
+
+void	Contact::search_contact(int i){
+	this->index = i;
+	std::cout <<"|" << index << "         |";
+	print_format(data_phonebook[0]);
+	print_format(data_phonebook[1]);
+	print_format(data_phonebook[2]);
+	std::cout <<std::endl;
 }
