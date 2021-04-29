@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 21:22:11 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 22:07:09 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/29 23:44:22 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Contact{
 
 			void add_new_contact();
 			void search_contact(int i);
-			void print_index(int i);
+			void print_index();
 			void details_contact();
 			
 	private:

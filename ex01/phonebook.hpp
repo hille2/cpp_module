@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:21:40 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 22:08:29 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/29 23:35:35 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ class StorePhonebook{
 			Contact	new_contact[8];
 			int		count;
 };
+
+int	details_contact();
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:38:15 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 22:08:43 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/29 23:46:49 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ void	StorePhonebook::search_contact(void){
 	std::cout << "=============================================" << std::endl;
 	while (++i < count)
 		new_contact[i].search_contact(i);
-	if (i != 0)
-		Contact.details_contact();
+//	if (i != 0)
+//	{
+		//i = details_contact();
+		//new_contact[i].print_index();
+//	}
 	std::cout <<std::endl;
 }
 
