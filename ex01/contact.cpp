@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:26:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/30 19:27:31 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/30 21:09:42 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,19 @@ void	Contact::addNewContact(void){
 
 static void	printFormat(std::string data)
 {
+	int j = data.length();
 	int i;
-	for (i = 0; i < 9; i++)
+	for (i = 0; i <= (9 - j); i++)
 	{
-		if (data[i])
-			std::cout << data[i];
-		else
-			std::cout << " ";
+		std::cout << " ";
 	}
-	(data[i]) ? std::cout << "." : std::cout << " ";
+	if (j > 10)
+		j = 9;
+	for (i = 0; i < j; i++)
+	{
+		std::cout << data[i];
+	}
+	(data[11]) ? std::cout << "." : std::cout << data[i];
 	std::cout << "|";
 }
 
@@ -79,25 +83,26 @@ void	Contact::printindex_(){
 	}
 }
 
-int	detailsContact(){
+int	detailsContact(int index){
 	std::string next;
 	while (1)
 	{
-		std::cout << "to see the contact in more detail, select the index_" << std::endl;
+		std::cout << "to see the contact in more detail, select the index" << std::endl;
 		std::cout << "or enter a 'SKIP' to continue working" << std::endl;
 		std::getline(std::cin, next);
 		if (next == "SKIP")
 			return(-1);
 		if (!next[1] && next[0] >= '0' && next[0] <= '8')
-			return(next[0] - '0');
-		std::cout << "unknown command please try again ｡ﾟ･(>﹏<)･ﾟ｡" << std::endl;
+			if ((next[0] - '0') <= index)
+				return(next[0] - '0');
+		std::cout << "unknown index or command please try again ｡ﾟ･(>﹏<)･ﾟ｡" << std::endl;
 		std::cout << "=============================================" << std::endl;
 	}
 }
 
 void	Contact::searchContact(int i){
 	this->index_ = i;
-	std::cout <<"|" << index_ << "         |";
+	std::cout <<"|         " << index_ << "|";
 	for (int i = 0; i < 3; i++)
 		printFormat(dataPhonebook_[i]);
 	std::cout <<std::endl;

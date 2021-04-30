@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:21:40 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/30 19:11:50 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/30 21:06:07 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ class StorePhonebook{
 			int		count_;
 };
 
-int	detailsContact();
+int	detailsContact(int index);
 
 #endif
