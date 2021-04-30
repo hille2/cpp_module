@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:12:05 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/27 14:13:16 by sgath            ###   ########.fr       */
+/*   Updated: 2021/04/30 19:20:18 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int
 
 	if (ac != 1)
 	{
-		while (++i < ac - 1)
+		while (++i < ac)
 		{
 			av[i] = check_toupper(av[i]);
-			std::cout << av[i] << " ";
+			std::cout << av[i];
 		}
-		std::cout << av[i] << std::endl;
+		std::cout << std::endl;
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;

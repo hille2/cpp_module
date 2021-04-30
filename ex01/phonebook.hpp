@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:21:40 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/29 23:35:35 by yu               ###   ########.fr       */
+/*   Updated: 2021/04/30 19:11:50 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,20 @@
 
 class StorePhonebook{
 	public:
-			explicit StorePhonebook() : count(0)
+			explicit StorePhonebook() : count_(0)
 			{}
 			~StorePhonebook()
 			{}
-			void greeting_title();
-			void add_contact();
-			void search_contact();
-			void exit_phonebook();
-			void choice_comand();
-			//void details_contact();
-			//void print_index(int i);
+			void greetingTitle();
+			void addContact();
+			void searchContact();
+			void exitPhonebook();
+			void choiceComand();
 	private:
-			Contact	new_contact[8];
-			int		count;
+			Contact	newContact[8];
+			int		count_;
 };
 
-int	details_contact();
+int	detailsContact();
 
 #endif
