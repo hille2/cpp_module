@@ -6,7 +6,7 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/27 14:20:59 by sgath             #+#    #+#              #
-#    Updated: 2021/04/29 21:33:04 by sgath            ###   ########.fr        #
+#    Updated: 2021/05/02 13:04:50 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ OBJ =		$(SRCS:.s=.o)
 
 NAME =		PhoneBook
 
-FLAGS =		-Wall -Wextra 
-#-Werror
+FLAGS =		-Wall -Wextra -Werror
 
 .PHONY: 	all clean fclean re
 

@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:26:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/30 21:09:42 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/02 13:03:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,12 @@ static void	printFormat(std::string data)
 	int j = data.length();
 	int i;
 	for (i = 0; i <= (9 - j); i++)
-	{
 		std::cout << " ";
-	}
 	if (j > 10)
 		j = 9;
 	for (i = 0; i < j; i++)
-	{
 		std::cout << data[i];
-	}
-	(data[11]) ? std::cout << "." : std::cout << data[i];
+	(data[10]) ? std::cout << "." : std::cout << data[i];
 	std::cout << "|";
 }
 
