@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 13:45:45 by sgath             #+#    #+#             */
+/*   Created: 2021/05/20 13:44:58 by sgath             #+#    #+#             */
 /*   Updated: 2021/05/20 18:53:33 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Zombie.hpp"
-#include "ZombieEvent.hpp"
 
-int main()
+Zombie::Zombie() : m_name(), m_type()
+{}
+
+Zombie::Zombie(std::string name, std::string type) : m_name(name), m_type(type)
+{}
+
+Zombie::~Zombie()
+{}
+
+void Zombie::announce()
 {
-	Zombie *zombies;
-	ZombieEvent zombieEvent;
-
-	zombies = new Zombie("Gosha", "Normal");
-	zombies->announce();
-	delete zombies;
-
-	zombies = zombieEvent.newZombie("Shon");
-	zombies->announce();
-	delete zombies;
-
-	zombieEvent.setZombieType("Angry");
-	zombies = zombieEvent.newZombie("Lily");
-	zombies->announce();
-	delete zombies;
-	
-	zombieEvent.setZombieType("Hungry");
-	zombies = zombieEvent.randomChump();
-	zombies->announce();
-	delete zombies;
+	std::cout << "<" << Zombie::m_name << "(" << Zombie::m_type << ") say>: ";
+	std::cout << "M-m-m-m... Braiiiiiiinnnssss..." << std::endl;
 }

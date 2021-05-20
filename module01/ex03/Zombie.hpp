@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 13:45:45 by sgath             #+#    #+#             */
+/*   Created: 2021/05/20 13:45:55 by sgath             #+#    #+#             */
 /*   Updated: 2021/05/20 18:53:33 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main()
+#include <string>
+
+class Zombie
 {
-	Zombie *zombies;
-	ZombieEvent zombieEvent;
+private:
+	std::string m_name;
+	std::string m_type;
 
-	zombies = new Zombie("Gosha", "Normal");
-	zombies->announce();
-	delete zombies;
+public:
+	Zombie();
+	Zombie(std::string name, std::string type);
+	~Zombie();
+	void announce();
 
-	zombies = zombieEvent.newZombie("Shon");
-	zombies->announce();
-	delete zombies;
+};
 
-	zombieEvent.setZombieType("Angry");
-	zombies = zombieEvent.newZombie("Lily");
-	zombies->announce();
-	delete zombies;
-	
-	zombieEvent.setZombieType("Hungry");
-	zombies = zombieEvent.randomChump();
-	zombies->announce();
-	delete zombies;
-}
+#endif

@@ -6,7 +6,7 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/27 14:20:59 by sgath             #+#    #+#              #
-#    Updated: 2021/05/02 13:04:50 by sgath            ###   ########.fr        #
+#    Updated: 2021/05/20 19:25:46 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDES =	phonebook.hpp \
 
 OBJ =		$(SRCS:.s=.o)
 
-NAME =		PhoneBook
+NAME =		phoneBook
 
 FLAGS =		-Wall -Wextra -Werror
 

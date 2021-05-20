@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:26:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/02 13:03:12 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/20 19:28:36 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,14 @@ std::string Contact::dataFields_[11] = {
 void	Contact::addNewContact(void){
 
 	for (int i = 0; i <= 10; i++){
+		if (std::cin.eof())
+			exit(0);
 		std::cout << dataFields_[i];
 		std::getline(std::cin, dataPhonebook_[i]);
 		if (i == 0 || i == 1|| i == 2){
 			while (dataPhonebook_[i].length() == 0){
+				if (std::cin.eof())
+					exit(0);
 				std::cout << "this line cannot be empty" << std::endl << 
 				"Please enter data  ᕦ(ò_óˇ)ᕤ" << std::endl;
 				std::cout << dataFields_[i];
@@ -48,6 +52,8 @@ void	Contact::addNewContact(void){
 		}
 		if (i == 10){
 			while (dataPhonebook_[10].length() == 0){
+				if (std::cin.eof())
+					exit(0);
 				std::cout << "i want to know your dirty secrets ( ͡° ͜ʖ ͡°)" << std::endl;
 				std::cout << "darkest_secret: ";
 				std::getline(std::cin, dataPhonebook_[10]);
@@ -89,7 +95,7 @@ int	detailsContact(int index){
 		if (next == "SKIP")
 			return(-1);
 		if (!next[1] && next[0] >= '0' && next[0] <= '8')
-			if ((next[0] - '0') <= index)
+			if ((next[0] - '0') < index)
 				return(next[0] - '0');
 		std::cout << "unknown index or command please try again ｡ﾟ･(>﹏<)･ﾟ｡" << std::endl;
 		std::cout << "=============================================" << std::endl;
