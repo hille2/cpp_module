@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:21:40 by sgath             #+#    #+#             */
-/*   Updated: 2021/04/30 21:06:07 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/02 15:55:47 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <string>
 # include "contact.hpp"
 
-class StorePhonebook{
+class Phonebook{
 	public:
-			explicit StorePhonebook() : count_(0)
+			explicit Phonebook() : count_(0)
 			{}
-			~StorePhonebook()
+			~Phonebook()
 			{}
 			void greetingTitle();
 			void addContact();

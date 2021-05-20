@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:21:42 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/02 12:52:15 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/02 15:55:58 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ int
 	main(void)
 {
 	std::string command;
-	StorePhonebook user_phonebook;
+	Phonebook user_phonebook;
 
 	user_phonebook.greetingTitle();
 	while (1)
 	{
-		std::cout << std::cin.eof() << std::endl;
 		user_phonebook.choiceComand();
 		std::getline(std::cin, command);
 		if (command == "ADD")
