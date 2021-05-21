@@ -6,18 +6,20 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 11:15:19 by sgath             #+#    #+#              #
-#    Updated: 2021/05/21 17:15:48 by sgath            ###   ########.fr        #
+#    Updated: 2021/05/21 17:15:33 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =		main.cpp \
-			Brain.cpp \
-			Human.cpp \
+			HumanA.cpp \
+			HumanB.cpp \
+			Weapon.cpp
 
-INCLUDES =	Brain.hpp \
-			Human.hpp \
+INCLUDES =	HumanA.hpp \
+			HumanB.hpp \
+			Weapon.hpp \
 
-NAME =		Hi_Brain
+NAME =		Unnecessary_violence
 
 FLAGS =		-Wall -Wextra -Werror
 
