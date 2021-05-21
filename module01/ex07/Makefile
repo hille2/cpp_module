@@ -6,18 +6,16 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 11:15:19 by sgath             #+#    #+#              #
-#    Updated: 2021/05/21 17:20:24 by sgath            ###   ########.fr        #
+#    Updated: 2021/05/21 17:19:25 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		Pony.cpp \
-			main.cpp
-			
-
-INCLUDES =	Pony.hpp
+SRCS =		main.cpp \
 
 
-NAME =		Pony
+INCLUDES =	
+
+NAME =		replace
 
 FLAGS =		-Wall -Wextra -Werror
 
@@ -25,7 +23,7 @@ FLAGS =		-Wall -Wextra -Werror
 
 all: 		$(NAME)
 
-$(NAME):	$(INCLUDES) $(SRCS)
+$(NAME):	 $(INCLUDES) $(SRCS)
 			clang++ $(SRCS) $(FLAGS) -o $@
 
 clean:

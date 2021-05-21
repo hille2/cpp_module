@@ -6,7 +6,7 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 11:15:19 by sgath             #+#    #+#              #
-#    Updated: 2021/05/21 13:04:55 by sgath            ###   ########.fr        #
+#    Updated: 2021/05/21 17:20:40 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ SRCS =		Zombie.cpp \
 INCLUDES =	ZombieEvent.hpp \
 			Zombie.hpp
 
-OBJ =		$(SRCS:.s=.o)
-
 NAME =		ZombieEvent
 
 FLAGS =		-Wall -Wextra -Werror
@@ -27,7 +25,7 @@ FLAGS =		-Wall -Wextra -Werror
 
 all: 		$(NAME)
 
-$(NAME):	$(OBJ) $(INCLUDES)
+$(NAME):	$(INCLUDES) $(SRCS)
 			clang++ $(SRCS) $(FLAGS) -o $@
 
 clean:
