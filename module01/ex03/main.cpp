@@ -6,34 +6,20 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 13:45:45 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/20 18:53:33 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/21 12:55:54 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#include "ZombieHorde.hpp"
+#include <string>
 
 int main()
 {
-	Zombie *zombies;
-	ZombieEvent zombieEvent;
+	long num = 0;
 
-	zombies = new Zombie("Gosha", "Normal");
-	zombies->announce();
-	delete zombies;
-
-	zombies = zombieEvent.newZombie("Shon");
-	zombies->announce();
-	delete zombies;
-
-	zombieEvent.setZombieType("Angry");
-	zombies = zombieEvent.newZombie("Lily");
-	zombies->announce();
-	delete zombies;
-	
-	zombieEvent.setZombieType("Hungry");
-	zombies = zombieEvent.randomChump();
-	zombies->announce();
-	delete zombies;
+	std::cout << "please enter the number of zombies:" << std::endl;
+	std::cin >> num;
+	ZombieHorde hord(num);
 }

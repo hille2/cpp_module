@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 13:45:55 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/20 18:53:33 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/21 12:52:20 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	Zombie();
 	Zombie(std::string name, std::string type);
 	~Zombie();
+	void getName(std::string name);
 	void announce();
 
 };
