@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 13:45:48 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/21 13:35:23 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/22 18:20:23 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void ZombieEvent::setZombieType(std::string type)
 
 Zombie *ZombieEvent::newZombie(std::string name)
 {
-	//if (m_typeEvent == "")
-	//	m_typeEvent = "NoType";
+	if (m_typeEvent == "")
+		m_typeEvent = "NoType";
 	return(new Zombie(name, m_typeEvent));
 }
 

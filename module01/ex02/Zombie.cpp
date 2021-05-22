@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 13:44:58 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/20 18:53:33 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/22 18:26:22 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ Zombie::~Zombie()
 
 void Zombie::announce()
 {
-	std::cout << "<" << Zombie::m_name << "(" << Zombie::m_type << ") say>: ";
+	std::cout << "\033[1;92m<" << Zombie::m_name << "(" << Zombie::m_type << ") say>: \033[0m";
 	std::cout << "M-m-m-m... Braiiiiiiinnnssss..." << std::endl;
 }

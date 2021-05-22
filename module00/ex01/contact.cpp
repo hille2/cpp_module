@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:26:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/20 19:28:36 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/22 15:33:40 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Contact::Contact(){
 }
 
 std::string Contact::dataFields_[11] = {
-				"first_name: ",
+				"first_name: ", 
 				"last_name: ",
 				"nickname: ",
 				"login: ",
