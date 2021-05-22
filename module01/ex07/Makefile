@@ -6,14 +6,14 @@
 #    By: sgath <sgath@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 11:15:19 by sgath             #+#    #+#              #
-#    Updated: 2021/05/21 17:19:25 by sgath            ###   ########.fr        #
+#    Updated: 2021/05/22 18:10:02 by sgath            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =		main.cpp \
+			Sed.cpp \
 
-
-INCLUDES =	
+INCLUDES =	Sed.hpp \
 
 NAME =		replace
 
