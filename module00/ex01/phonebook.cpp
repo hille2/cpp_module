@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:38:15 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/02 15:55:47 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/26 17:52:10 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	Phonebook::greetingTitle(void)
 	std::cout << "▒▐█▄█░▐████▐█▄▒█▌▐█▒█▒█░▐█▀▀▐█▀▀▄▐█▄▒█▌▐█▄▒█▌▐██▌░" << std::endl;
 	std::cout << "▒▐█░░░▐█░▐█▐██▄█▌██░▒██▌▐█▄▄▐█▄▄▀▐██▄█▌▐██▄█▌▐█▒▐▄" << std::endl;
 	std::cout << "✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿" << std::endl;
-	std::cout << "(´｡• ᵕ •｡) ♡ \tHello " << name <<  " ❤❤❤" << std::endl;
+	std::cout << "(´｡• ᵕ,｡) ♡ \tHello " << name <<  " ❤❤❤" << std::endl;
 	std::cout << "☆☆☆   Welcome to your awesome PHONEBOOK   ☆☆☆" << std::endl;
 	std::cout << "✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿✿" << std::endl;
 }
