@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:25 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/26 21:46:42 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/27 13:23:41 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 FragTrap::FragTrap( ):	m_name("TTL"), m_level(1), m_hitPoints(MAX), m_energyPoints(MAX)
 {
-	std::cout << "<you created the Interplanetary Ninja Assassin Claptrap models the FR4G-TP \033[1;92m" 
-	<< m_name << "\033[0m> :" << std::endl << "\033[1;33mStill haven't found the Vault?" << std::endl;
-	std::cout << "\033[1;235m<we will all regret it>\033[0m" << std::endl;
+	std::cout << "\033[1;235m*brrrrr-brrrr*\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap( std::string const name ) :	m_name(name), m_level(1), m_hitPoints(MAX),
@@ -31,7 +29,7 @@ FragTrap::FragTrap( FragTrap const &copy ) :	m_name(copy.m_name), m_level(copy.m
 												m_hitPoints(copy.m_hitPoints), m_energyPoints(copy.m_energyPoints)
 												
 {
-	std::cout << "<you created Claptrap models the FR4G-TP\"\033[1;92m" 
+	std::cout << "<you created clone Claptrap models the FR4G-TP\"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mRrrrrgh...this isn't working!\033[0m" << std::endl;
 }
 
@@ -162,6 +160,5 @@ void		FragTrap::vaulthunter_dot_exe( std::string const &target )
 		std::string skill = skillTree[rand() % 5];
 		std::cout << "<\033[1;92m" << m_name << "\033[0m uses skill\033[1;4m " << skill << "\033[0m>" << std::endl;
 		std::cout << quete << std::endl;
-	}
-		
+	}	
 }

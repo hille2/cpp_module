@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:21 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/26 20:13:48 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/27 12:29:49 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ public:
 	FragTrap( std::string const name );
 	FragTrap( FragTrap const &copy );
 	~FragTrap();
-
 	FragTrap	operator=( FragTrap const &fragValue );
+	
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );

@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 13:35:21 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/26 20:13:48 by sgath            ###   ########.fr       */
+/*   Created: 2021/05/27 12:18:37 by sgath             #+#    #+#             */
+/*   Updated: 2021/05/27 14:28:06 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include <iostream>
 #include <string>
 #include <cstdlib>
 
-enum FuckMagic
+enum FuckMagicScav
 {
-	MAX = 100,
-	MIN = 0,
-	COST_ENERGY = 25,
-	SKILL = 5
+	MAX_HP = 100,
+	MAX_MANA = 50,
+	MIN_SC = 0,
+	COST_ENERGY_SC = 7,
 };
 
-class FragTrap
+class ScavTrap
 {
 private:
 	std::string m_name;
 	int m_level;
 	int m_hitPoints;
 	int m_energyPoints;
-	const static int m_maxHitPoints = MAX;
-	const static int m_maxEnergyPoints = MAX;
-	const static int m_meleeAttackDamage = 30;
-	const static int m_rangedAttackDamage = 20;
-	const static int m_armorDamageReduction = 5;
+
+	const static int m_meleeAttackDamage = 20;
+	const static int m_rangedAttackDamage = 15;
+	const static int m_armorDamageReduction = 3;
+	const static int m_maxHitPoints = MAX_HP;
+	const static int m_maxEnergyPoints = MAX_MANA;
 
 	static std::string quetesAttack[];
 	static std::string quetesDamage[];
@@ -44,17 +45,17 @@ private:
 	static std::string skillTree[];
 
 public:
-	FragTrap();
-	FragTrap( std::string const name );
-	FragTrap( FragTrap const &copy );
-	~FragTrap();
+	ScavTrap( );
+	ScavTrap( std::string name );
+	ScavTrap( ScavTrap const &scavCopy );
+	~ScavTrap( );
+	ScavTrap	operator=( ScavTrap const &scavValue );
 
-	FragTrap	operator=( FragTrap const &fragValue );
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
-	void		vaulthunter_dot_exe( std::string const &target );
+	void		challengeNewcomer( std::string const &target );
 
 };
 
