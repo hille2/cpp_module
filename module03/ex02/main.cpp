@@ -6,29 +6,40 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/27 14:27:04 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/27 21:02:47 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap)
+void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap, 
+			std::string *nameClapTrap)
 {
 	static int firstEntry = 0;
 
 	if (firstEntry == 0)
 	{
-		std::cout << "╔═══╗╔═══╗╔═══╗╔╗──╔╗╔════╗╔═══╗╔═══╗╔═══╗" << std::endl;
-		std::cout << "║╔═╗║║╔═╗║║╔═╗║║╚╗╔╝║║╔╗╔╗║║╔═╗║║╔═╗║║╔═╗║" << std::endl;
-		std::cout << "║╚══╗║║─╚╝║║─║║╚╗║║╔╝╚╝║║╚╝║╚═╝║║║─║║║╚═╝║" << std::endl;
-		std::cout << "╚══╗║║║─╔╗║╚═╝║─║╚╝║───║║──║╔╗╔╝║╚═╝║║╔══╝" << std::endl;
-		std::cout << "║╚═╝║║╚═╝║║╔═╗║─╚╗╔╝───║║──║║║╚╗║╔═╗║║║───" << std::endl;
-		std::cout << "╚═══╝╚═══╝╚╝─╚╝──╚╝────╚╝──╚╝╚═╝╚╝─╚╝╚╝───" << std::endl;
-		std::cout << "Today you can create two robotse: FR4G-TP and SC4V-TP."
+		std::cout << "╔═══╗╔╗───╔═══╗╔═══╗╔════╗╔═══╗╔═══╗╔═══╗" << std::endl;
+		std::cout << "║╔═╗║║║───║╔═╗║║╔═╗║║╔╗╔╗║║╔═╗║║╔═╗║║╔═╗║" << std::endl;
+		std::cout << "║║─╚╝║║───║║─║║║╚═╝║╚╝║║╚╝║╚═╝║║║─║║║╚═╝║" << std::endl;
+		std::cout << "║║─╔╗║║─╔╗║╚═╝║║╔══╝──║║──║╔╗╔╝║╚═╝║║╔══╝" << std::endl;
+		std::cout << "║╚═╝║║╚═╝║║╔═╗║║║─────║║──║║║╚╗║╔═╗║║║───" << std::endl;
+		std::cout << "╚═══╝╚═══╝╚╝─╚╝╚╝─────╚╝──╚╝╚═╝╚╝─╚╝╚╝───" << std::endl;
+		std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP and CL4P-TP."
 		<<std::endl; 
 		firstEntry = 1;
 	}
+	
+	std::cout << "Please enter a name your CL4P-TP:"<< std::endl;
+	while (*nameClapTrap == "")
+	{
+		std::getline(std::cin, *nameClapTrap);
+		if (*nameClapTrap== "")
+			std::cout << "nameCL4P-TP must not be empty" << std::endl;
+	}
+	
 	std::cout << "Please enter a name your FR4G-TP:"<< std::endl;
 	while (*nameFrapTrap == "")
 	{
@@ -37,6 +48,7 @@ void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap)
 			std::cout << "name FR4G-TP must not be empty" << std::endl;
 	}
 	std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
+	
 	while (*nameScavTrap == "")
 	{
 		std::getline(std::cin, *nameScavTrap);
@@ -72,7 +84,7 @@ std::string		randTarget()
 		"\033[1;31mDesert Scythid\033[0m",
 		"\033[1;31mGiant Scythid\033[0m",
 	};
-	
+
 	int num = rand() % (sizeof(target) / sizeof(target[0]));
 	return (target[num]);
 }
@@ -84,7 +96,7 @@ unsigned int	randAmount()
 	return(num);
 }
 
-void			actionsFL4G( FragTrap *flap, ScavTrap *scav )
+void			actionsFL4G( FragTrap &flap )
 {
 	std::string command;
 	std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
@@ -92,22 +104,22 @@ void			actionsFL4G( FragTrap *flap, ScavTrap *scav )
 	
 	std::getline(std::cin, command);
 	if (command == "1")
-		flap->rangedAttack(randTarget());
+		flap.rangedAttack(randTarget());
 	else if (command == "2")
-		flap->meleeAttack(randTarget());
+		flap.meleeAttack(randTarget());
 	else if (command == "3")
-		flap->takeDamage(randAmount());
+		flap.takeDamage(randAmount());
 	else if (command == "4")
-		flap->beRepaired(randAmount());
+		flap.beRepaired(randAmount());
 	else if (command == "5")
-		flap->vaulthunter_dot_exe(randTarget());
+		flap.vaulthunter_dot_exe(randTarget());
 	else if (command == "6")
 		return ;
 	else
 		std::cout << "unknown command, try again" << std::endl;
 }
 
-void			actionsSC4V( FragTrap *flap, ScavTrap *scav )
+void			actionsSC4V( ScavTrap &scav )
 {
 	std::string command;
 	std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
@@ -115,16 +127,37 @@ void			actionsSC4V( FragTrap *flap, ScavTrap *scav )
 	
 	std::getline(std::cin, command);
 	if (command == "1")
-		scav->rangedAttack(randTarget());
+		scav.rangedAttack(randTarget());
 	else if (command == "2")
-		scav->meleeAttack(randTarget());
+		scav.meleeAttack(randTarget());
 	else if (command == "3")
-		scav->takeDamage(randAmount());
+		scav.takeDamage(randAmount());
 	else if (command == "4")
-		scav->beRepaired(randAmount());
+		scav.beRepaired(randAmount());
 	else if (command == "5")
-		scav->challengeNewcomer(randTarget());
+		scav.challengeNewcomer(randTarget());
 	else if (command == "6")
+		return ;
+	else
+		std::cout << "unknown command, try again" << std::endl;
+}
+
+void			actionsCL4P( ClapTrap &clap)
+{
+	std::string command;
+	std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
+	std::cout << "4. Be repaired\t\t 6.Exit" << std::endl;
+	
+	std::getline(std::cin, command);
+	if (command == "1")
+		clap.rangedAttack(randTarget());
+	else if (command == "2")
+		clap.meleeAttack(randTarget());
+	else if (command == "3")
+		clap.takeDamage(randAmount());
+	else if (command == "4")
+		clap.beRepaired(randAmount());
+	else if (command == "5")
 		return ;
 	else
 		std::cout << "unknown command, try again" << std::endl;
@@ -134,21 +167,26 @@ int				main( )
 {
 	std::string nameScavTrap;
 	std::string nameFrapTrap;
+	std::string nameClapTrap;
 	std::string command;
 
 	srand(static_cast<unsigned int>(time(0)));
-	greetingTitle(&nameFrapTrap, &nameScavTrap);
-	FragTrap *flap = new FragTrap(nameFrapTrap);
-	ScavTrap *scav = new ScavTrap(nameScavTrap);
+	greetingTitle(&nameFrapTrap, &nameScavTrap, &nameClapTrap);
+	
+	FragTrap flap(nameFrapTrap);
+	ScavTrap scav(nameScavTrap);
+	ClapTrap clap(nameClapTrap);
 	
 	while(1)
 	{
-		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP" << std::endl;
+		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "1")
-			actionsFL4G(flap, scav);
+			actionsFL4G(flap);
 		else if (command == "2")
-			actionsSC4V(flap, scav);
+			actionsSC4V(scav);
+		else if (command == "3")
+			actionsCL4P(clap);
 		else
 			std::cout << "sorry, but you no longer have other models!" << std::endl;
 		std::cout << "to complete the test, enter the last Pi" << std::endl << "or EXIT" << std::endl;
@@ -156,9 +194,6 @@ int				main( )
 		if (command == "EXIT" || command == "exit")
 			break;
 	}
-
-	delete flap;
-	delete scav;
 	
 	return (0);
 }

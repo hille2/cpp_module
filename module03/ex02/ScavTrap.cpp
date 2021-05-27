@@ -6,19 +6,13 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:18:33 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/27 14:30:53 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/27 20:42:56 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() :	m_name("SC4V-TV"), m_hitPoints(MAX_HP), m_energyPoints(MAX_MANA)
-{
-	std::cout << "\033[1;235m*brrrrr-brrrr*\033[0m" << std::endl;
-}
-
-ScavTrap::ScavTrap( std::string name ) :	m_name(name), m_hitPoints(MAX_HP), 
-											m_energyPoints(MAX_MANA)
+ScavTrap::ScavTrap( std::string name ) :	m_name(name)
 {
 	std::cout << "<you created the ScavTrap models the SC4V-TP \"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mSecret handshake!\033[0m" << std::endl;
@@ -42,34 +36,21 @@ ScavTrap::~ScavTrap()
 	std::cout << "<finally we are free from chatter>" << std::endl;
 };
 
-std::string	ScavTrap::quetesAttack[] = 
+std::string	ScavTrap::quetesAttack[] =
 {
-	"\033[1;33mStep right up, to the Bulletnator 9000!\033[0m",
-	"\033[1;33mI am a tornado of death and bullets!\033[0m",
-	"\033[1;33mStop me before I kill again, except don't!\033[0m",
-	"\033[1;33mHehehehe, mwaa ha ha ha, MWAA HA HA HA!\033[0m",
-	"\033[1;33mI'm on a roll!\033[0m",
-	"\033[1;33mUnts unts unts unts!\033[0m",
-	"\033[1;33mHa ha ha! Fall before your robot overlord!\033[0m",
-	"\033[1;33mCan't touch this!\033[0m",
-	"\033[1;33mHa! Keep 'em coming!\033[0m",
-	"\033[1;33mThere is no way this ends badly!\033[0m",
-	"\033[1;33mThis is why I was built!\033[0m"
+	"\033[1;33mHey everybody! Check out my package!\033[0m",
+	"\033[1;33mLet's get this party started!\033[0m",
+	"\033[1;33mGlitching weirdness is a term of endearment, right?\033[0m",
+	"\033[1;33mRecompiling my combat code!\033[0m",
+	"\033[1;33mThis time it'll be awesome, I promise!\033[0m",
+	"\033[1;33mLook out everybody! Things are about to get awesome!\033[0m",
+	"\033[1;33mWhere'd all my bullets go?\033[0m",
+	"\033[1;33mBullets are dumb.\033[0m",
+	"\033[1;33mWho needs ammo anyway, am I right?\033[0m",
 };
 
-std::string	ScavTrap::quetesDamage[] = 
+std::string	ScavTrap::quetesDamage[] =
 {
-	"\033[1;33mI'll stop talking when I'm dead!\033[0m",
-	"\033[1;33mI'll die the way I lived: annoying!\033[0m",
-	"\033[1;33mCome back here! I'll gnaw your legs off!\033[0m",
-	"\033[1;33mThis could've gone better!\033[0m",
-	"\033[1;33mYou look like something a skag barfed up!\033[0m",
-	"\033[1;33mWhat's that smell? Oh wait, it's just you!\033[0m",
-	"\033[1;33mYo momma's so dumb, she couldn't think of a good ending for this 'yo momma' joke!\033[0m",
-	"\033[1;33mYou're one screw short of a screw!\033[0m",
-	"\033[1;33mI bet your mom could do better!\033[0m",
-	"\033[1;33mYou look like something a skag barfed up!\033[0m",
-	"\033[1;33mOh yeah? Well, uh... yeah.\033[0m",
 	"\033[1;33mWhat is that smell? Oh, never mind... it's just you!\033[0m",
 	"\033[1;33mI'm leaking!\033[0m",
 	"\033[1;33mGood thing I don't have a soul!\033[0m",
@@ -84,16 +65,13 @@ std::string	ScavTrap::quetesDamage[] =
 	"\033[1;33mI have many regrets!\033[0m",
 };
 
-std::string	ScavTrap::quetesRepaired[] = 
+std::string	ScavTrap::quetesRepaired[] =
 {
-	"\033[1;33mHealth! Eww, what flavor is red?\033[0m"
-	"\033[1;33mHealth over here!\033[0m"
-	"\033[1;33mSweet life juice!\033[0m"
-	"\033[1;33mI found health!\033[0m"
-	"\033[1;33mHealsies!"
-	"\033[1;33mCan I just say... yeehaw.\033[0m"
-	"\033[1;33mYou are ace high!\033[0m"
-	"\033[1;33mYou're the wub to my dub!\033[0m"
+	"\033[1;33mAw yeah!\033[0m",
+	"\033[1;33mWoohoo! In your face!\033[0m",
+	"\033[1;33mWho's a badass robot? This guy!\033[0m",
+	"\033[1;33mI am so impressed with myself!\033[0m",
+	"\033[1;33mHa ha, this is in no way surprising! Ha ha!\033[0m",
 };
 
 std::string	ScavTrap::skillTree[] =
@@ -141,7 +119,7 @@ void	ScavTrap::meleeAttack( std::string const &target)
 
 void	ScavTrap::takeDamage( unsigned int amount )
 {
-	m_hitPoints = ((m_hitPoints - (amount - m_armorDamageReduction)) < MIN_SC) ? MIN_SC : (m_hitPoints - (amount - m_armorDamageReduction));
+	m_hitPoints = ((m_hitPoints - (amount - m_armorDamageReduction)) < MIN) ? MIN : (m_hitPoints - (amount - m_armorDamageReduction));
 	std::cout << "<SC4V-TP \033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
 	<< amount << "\033[0m points of damage!>" << std::endl;
 	
@@ -164,7 +142,7 @@ void	ScavTrap::challengeNewcomer( std::string const &target )
 {
 	// std::cout << "<FR4G-TP \033[1;92m" << m_name << "\033[0m is trying to use effect a semi-random attack>" <<
 	// std::endl;
-	if (m_energyPoints - COST_ENERGY_SC < MIN_SC)
+	if (m_energyPoints - COST_ENERGY_SC < MIN)
 	{
 		std::cout << "\033[1;33mCan I shoot something now? Or climb some stairs? SOMETHING exciting?\033[0m" << std::endl;
 		std::cout << "<\033[1;92m" << m_name << "\033[0m is idle now>" << std::endl;
