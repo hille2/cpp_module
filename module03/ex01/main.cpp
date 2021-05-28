@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/27 14:27:04 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 12:08:49 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ unsigned int	randAmount()
 	return(num);
 }
 
-void			actionsFL4G( FragTrap *flap, ScavTrap *scav )
+void			actionsFL4G( FragTrap *flap )
 {
 	std::string command;
 	std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
@@ -107,7 +107,7 @@ void			actionsFL4G( FragTrap *flap, ScavTrap *scav )
 		std::cout << "unknown command, try again" << std::endl;
 }
 
-void			actionsSC4V( FragTrap *flap, ScavTrap *scav )
+void			actionsSC4V( ScavTrap *scav )
 {
 	std::string command;
 	std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
@@ -146,9 +146,9 @@ int				main( )
 		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "1")
-			actionsFL4G(flap, scav);
+			actionsFL4G(flap);
 		else if (command == "2")
-			actionsSC4V(flap, scav);
+			actionsSC4V(scav);
 		else
 			std::cout << "sorry, but you no longer have other models!" << std::endl;
 		std::cout << "to complete the test, enter the last Pi" << std::endl << "or EXIT" << std::endl;

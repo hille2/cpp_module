@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:25 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/27 20:42:35 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 13:07:47 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 FragTrap::FragTrap( std::string const name ) :	m_name(name), m_level(1), m_hitPoints(MAX_HP),
 												m_energyPoints(MAX_HP)
 {
-	std::cout << "<you created the Interplanetary Ninja Assassin Claptrap models the FR4G-TP \"\033[1;92m" 
+	std::cout << "<you created the  Claptrap models the FR4G-TP \"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mYoo hoooooooooo!\033[0m" << std::endl;
 	std::cout << "\033[1;59m<we will all regret it>\033[0m" << std::endl;
 }
@@ -126,6 +126,8 @@ void		FragTrap::takeDamage( unsigned int amount )
 	
 	std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 	std::cout << quete << std::endl;
+
+	std::cout << "\t\t\t" <<m_hitPoints << "/" << m_maxHitPoints << std::endl;
 }
 
 void		FragTrap::beRepaired(unsigned int amount )
@@ -153,7 +155,8 @@ void		FragTrap::vaulthunter_dot_exe( std::string const &target )
 		m_energyPoints -= COST_ENERGY_FR;
 		std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 		std::string skill = skillTree[rand() % SKILL_FR];
-		std::cout << "<\033[1;92m" << m_name << "\033[0m uses skill\033[1;4m " << skill << "\033[0m>" << std::endl;
+		std::cout << "<\033[1;92m" << m_name << "\033[0m uses skill\033[1;4m " << skill << "\033[0m";
+		std::cout << " and attacks " << target << " causing \033[1;34m 15 \033[0m points of damage!>" << std::endl;
 		std::cout << quete << std::endl;
 	}	
 }

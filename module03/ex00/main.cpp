@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/27 12:15:17 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 12:07:39 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,16 @@ unsigned int	randAmount()
 void			newCommand()
 {
 		std::cout << "please select command:" << std::endl;
-		std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
-		std::cout << "4. Be repaired\t\t 5. Create clone\t 6.Destroy FR4G-TP" << std::endl;
+		std::cout << "1. Ranged attack\t 2. Melee attack\t 3. Take damage\t" << std::endl;
+		std::cout << "4. Be repaired\t\t 5. Create clone\t 6. Destroy FR4G-TP" << std::endl;
 		std::cout << "7. Vaulthunter.EXE\t 8. Create new robot\t 9. Exit" << std::endl;
 }
 
-void			newRobot(FragTrap *robot2, std::string &name)
+void			newRobot(std::string &name)
 {
-	if (robot2)
-		delete robot2;
 	name = greetingTitle();
-	robot2 = new FragTrap(name);
+	FragTrap robot(name);
+	std::cout << "<sorry\033[1;92m " << name << "\033[0m cat't live forever>" << std::endl;
 }
 
 int				main()
@@ -103,7 +102,6 @@ int				main()
 
 	name = greetingTitle();
 	FragTrap *robot = new FragTrap(name);
-	FragTrap *robot2 = 0;
 	
 	newCommand();
 	while(1)
@@ -124,14 +122,12 @@ int				main()
 		else if (command == "7")
 			robot->vaulthunter_dot_exe(randTarget());
 		else if (command == "8")
-			newRobot(robot2, name);
+			newRobot(name);
 		else if (command == "9")
 			break ;
 		else
 			newCommand();
 	}
-	if (robot2)
-		delete robot2;
 	delete robot;
 	return (0);
 }

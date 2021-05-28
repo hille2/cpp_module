@@ -6,18 +6,18 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:12 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 13:08:38 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 14:19:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : m_name("CL4P-TV"), m_hitPoints(MAX_HP), m_energyPoints(MAX_MANA)
+ClapTrap::ClapTrap( ) : m_name("EVIL"), m_hitPoints(MAX_HP), m_energyPoints(MAX_MANA)
 {
 	std::cout << "\033[1;235m*brrrrr-brrrr*\033[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) :	m_name(name), m_hitPoints(MAX_HP), 
+ClapTrap::ClapTrap( std::string name ) :	m_name(name), m_hitPoints(MAX_HP), 
 										m_energyPoints(MAX_MANA)
 {
 	std::cout << "<you created the ClapTrap models the CL4P-TP \"\033[1;92m" 
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string name) :	m_name(name), m_hitPoints(MAX_HP),
 	std::cout << "\033[1;59m<It's not funny!>\033[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &clapCopy)
+ClapTrap::ClapTrap( ClapTrap const &clapCopy )
 {
 	m_name = clapCopy.m_name;
 	m_hitPoints = clapCopy.m_hitPoints;
@@ -35,9 +35,9 @@ ClapTrap::ClapTrap(ClapTrap const &clapCopy)
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mC to the L to the 4 to the P to the WHAAT!\033[0m" << std::endl;
 }
 
-ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap( )
 {
-	if (m_name == "CL4P-TV")
+	if (m_name == "EVIL")
 		std::cout << "\033[1;235m*trrrrr-trrrr*\033[0m" << std::endl;
 	else
 	{
@@ -99,40 +99,46 @@ std::string	ClapTrap::quetesRepaired[] =
 	"\033[1;33mYou're the wub to my dub!\033[0m"
 };
 
-void	ClapTrap::rangedAttack( std::string const &target)
+std::string	ClapTrap::getName( )
 {
-	std::cout << "<CL4P-TP \033[1;92m" << m_name << "\033[0m attacks " << target << " at range, causing \033[1;34m"
+	return (m_name);
+}
+
+void		ClapTrap::rangedAttack( std::string const &target )
+{
+	std::cout << "<\033[1;92m" << m_name << "\033[0m attacks " << target << " at range, causing \033[1;34m"
 	<< m_rangedAttackDamage << "\033[0m points of damage!>" << std::endl;
 	
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 }
 
-void	ClapTrap::meleeAttack( std::string const &target)
+void		ClapTrap::meleeAttack( std::string const &target )
 {
-	std::cout << "<CL4P-TP\033[1;92m " << m_name << "\033[0m attacks " << target << " at melee, causing \033[1;34m"
+	std::cout << "<\033[1;92m " << m_name << "\033[0m attacks " << target << " at melee, causing \033[1;34m"
 	<< m_meleeAttackDamage << "\033[0m points of damage!>" << std::endl;
 	
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 }
 
-void	ClapTrap::takeDamage( unsigned int amount )
+void		ClapTrap::takeDamage( unsigned int amount )
 {
 	m_hitPoints = ((m_hitPoints - (amount - m_armorDamageReduction)) < MIN) ? MIN : (m_hitPoints - (amount - m_armorDamageReduction));
-	std::cout << "<CL4P-TP \033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
+	std::cout << "<\033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
 	<< amount << "\033[0m points of damage!>" << std::endl;
-	
+	std::cout << "<armor extinguishes \033[1;77m" << m_rangedAttackDamage << "\033[0m damage>" << std::endl;
 	std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 	std::cout << quete << std::endl;
+
 	std::cout << "\t\t\t" <<m_hitPoints << "/" << m_maxHitPoints << std::endl;
 }
 
-void	ClapTrap::beRepaired( unsigned int amount )
+void		ClapTrap::beRepaired( unsigned int amount )
 {
 	m_hitPoints = ((m_hitPoints + amount) > MAX_HP) ? MAX_HP : (m_hitPoints + amount);
 
-	std::cout << "<CL4P-TP \033[1;92m" << m_name << "\033[0m restores health by \033[1;34m"
+	std::cout << "<\033[1;92m" << m_name << "\033[0m restores health by \033[1;34m"
 	<< amount << "\033[0m points!>" << std::endl;
 	
 	std::string quete = quetesRepaired[rand() % (sizeof(quetesRepaired) / sizeof(quetesRepaired[0]))];

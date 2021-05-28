@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:18:37 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 11:37:14 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 13:35:09 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 	~ScavTrap( );
 	ScavTrap	operator=( ScavTrap const &scavValue );
 
+	std::string	getName( );
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );

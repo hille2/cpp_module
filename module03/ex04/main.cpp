@@ -6,13 +6,14 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 11:36:10 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 14:23:14 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+#include "NinjaTrap.hpp"
 
 void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap, 
 			std::string *nameClapTrap)
@@ -21,14 +22,14 @@ void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap,
 
 	if (firstEntry == 0)
 	{
-		std::cout << "╔═══╗╔╗───╔═══╗╔═══╗╔════╗╔═══╗╔═══╗╔═══╗" << std::endl;
-		std::cout << "║╔═╗║║║───║╔═╗║║╔═╗║║╔╗╔╗║║╔═╗║║╔═╗║║╔═╗║" << std::endl;
-		std::cout << "║║─╚╝║║───║║─║║║╚═╝║╚╝║║╚╝║╚═╝║║║─║║║╚═╝║" << std::endl;
-		std::cout << "║║─╔╗║║─╔╗║╚═╝║║╔══╝──║║──║╔╗╔╝║╚═╝║║╔══╝" << std::endl;
-		std::cout << "║╚═╝║║╚═╝║║╔═╗║║║─────║║──║║║╚╗║╔═╗║║║───" << std::endl;
-		std::cout << "╚═══╝╚═══╝╚╝─╚╝╚╝─────╚╝──╚╝╚═╝╚╝─╚╝╚╝───" << std::endl;
-		std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP and CL4P-TP."
-		<<std::endl; 
+		std::cout << "╔═╗─╔╗╔═══╗──────     ╔══╗╔════╗╔═══╗     ╔═══╗╔═══╗╔═══╗╔══╗╔═══╗╔═══╗" << std::endl;
+		std::cout << "║║╚╗║║║╔═╗║──────     ╚╣─╝║╔╗╔╗║║╔═╗║     ║╔══╝║╔═╗║║╔═╗║╚╣─╝║╔══╝║╔═╗║" << std::endl;
+		std::cout << "║╔╗╚╝║║║─║║╔╗╔╗╔╗     ─║║─╚╝║║╚╝║╚══╗     ║╚══╗║║─║║║╚══╗─║║─║╚══╗║╚═╝║" << std::endl;
+		std::cout << "║║╚╗║║║║─║║║╚╝╚╝║     ─║║───║║──╚══╗║     ║╔══╝║╚═╝║╚══╗║─║║─║╔══╝║╔╗╔╝" << std::endl;
+		std::cout << "║║─║║║║╚═╝║╚╗╔╗╔╝     ╔╣─╗──║║──║╚═╝║     ║╚══╗║╔═╗║║╚═╝║╔╣─╗║╚══╗║║║╚╗" << std::endl;
+		std::cout << "╚╝─╚═╝╚═══╝─╚╝╚╝─     ╚══╝──╚╝──╚═══╝     ╚═══╝╚╝─╚╝╚═══╝╚══╝╚═══╝╚╝╚═╝" << std::endl;
+		std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP, CL4P-TP INAC-TR." << std::endl <<
+		"INAC-TR name if EVIL, hi very bad robot" <<std::endl;
 		firstEntry = 1;
 	}
 	
@@ -47,8 +48,8 @@ void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap,
 		if (*nameFrapTrap == "")
 			std::cout << "name FR4G-TP must not be empty" << std::endl;
 	}
-	std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
 	
+	std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
 	while (*nameScavTrap == "")
 	{
 		std::getline(std::cin, *nameScavTrap);
@@ -142,6 +143,38 @@ void			actionsSC4V( ScavTrap &scav )
 		std::cout << "unknown command, try again" << std::endl;
 }
 
+void			actionsINAC( NinjaTrap &ninja, FragTrap &flap, ClapTrap &clap, ScavTrap &scav )
+{
+	std::string command;
+	std::cout << "1. Ranged attack\t 2. Melee attack\t 3.Take damage\t" << std::endl;
+	std::cout << "4. Be repaired\t\t 5. NinjaShoeBOX\t 6.Exit" << std::endl;
+	
+	std::getline(std::cin, command);
+	if (command == "1")
+		ninja.rangedAttack(randTarget());
+	else if (command == "2")
+		ninja.meleeAttack(randTarget());
+	else if (command == "3")
+		ninja.takeDamage(randAmount());
+	else if (command == "4")
+		ninja.beRepaired(randAmount());
+	else if (command == "5")
+	{
+		std::cout << "choose a target:\n1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\t" << std::endl;
+		std::getline(std::cin, command);
+		if (command == "1")
+			ninja.ninjaShoebox(flap);
+		else if (command == "2")
+			ninja.ninjaShoebox(scav);
+		else if (command == "3")
+			ninja.ninjaShoebox(clap);
+	}
+	else if (command == "6")
+		return ;
+	else
+		std::cout << "unknown command, try again" << std::endl;
+}
+
 void			actionsCL4P( ClapTrap &clap)
 {
 	std::string command;
@@ -176,10 +209,11 @@ int				main( )
 	ClapTrap clap(nameClapTrap);
 	FragTrap flap(nameFrapTrap);
 	ScavTrap scav(nameScavTrap);
+	NinjaTrap ninja("EVIL");
 	
 	while(1)
 	{
-		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP" << std::endl;
+		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\t 4. INAC-TP" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "1")
 			actionsFL4G(flap);
@@ -187,6 +221,8 @@ int				main( )
 			actionsSC4V(scav);
 		else if (command == "3")
 			actionsCL4P(clap);
+		else if (command == "4")
+			actionsINAC(ninja, flap, clap, scav);
 		else
 			std::cout << "sorry, but you no longer have other models!" << std::endl;
 		std::cout << "to complete the test, enter the last Pi" << std::endl << "or EXIT" << std::endl;

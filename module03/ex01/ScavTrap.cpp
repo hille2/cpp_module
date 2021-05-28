@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:18:33 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/27 14:30:53 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 13:08:25 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,22 +86,22 @@ std::string	ScavTrap::quetesDamage[] =
 
 std::string	ScavTrap::quetesRepaired[] = 
 {
-	"\033[1;33mHealth! Eww, what flavor is red?\033[0m"
-	"\033[1;33mHealth over here!\033[0m"
-	"\033[1;33mSweet life juice!\033[0m"
-	"\033[1;33mI found health!\033[0m"
-	"\033[1;33mHealsies!"
-	"\033[1;33mCan I just say... yeehaw.\033[0m"
-	"\033[1;33mYou are ace high!\033[0m"
-	"\033[1;33mYou're the wub to my dub!\033[0m"
+	"\033[1;33mHealth! Eww, what flavor is red?\033[0m",
+	"\033[1;33mHealth over here!\033[0m",
+	"\033[1;33mSweet life juice!\033[0m",
+	"\033[1;33mI found health!\033[0m",
+	"\033[1;33mHealsies!",
+	"\033[1;33mCan I just say... yeehaw.\033[0m",
+	"\033[1;33mYou are ace high!\033[0m",
+	"\033[1;33mYou're the wub to my dub!\033[0m",
 };
 
 std::string	ScavTrap::skillTree[] =
 {
-	"looks at you and challenges you to a duel>\n\033[1;33mDance battle! Or, you know... regular battle\033[0m."
-	"looks at you and challenges you to a duel>\n\033[1;33mCare to have a friendly duel\033[0m?"
-	"looks at you and challenges you to a duel>\n\033[1;33mI will prove to you my robotic superiority\033[0m!"
-	"looks at you and challenges you to a duel>\n\033[1;33mMan versus machine! Very tiny streamlined machine\033[0m!"
+	"looks at you and challenges you to a duel>\n\033[1;33mDance battle! Or, you know... regular battle\033[0m.",
+	"looks at you and challenges you to a duel>\n\033[1;33mCare to have a friendly duel\033[0m?",
+	"looks at you and challenges you to a duel>\n\033[1;33mI will prove to you my robotic superiority\033[0m!",
+	"looks at you and challenges you to a duel>\n\033[1;33mMan versus machine! Very tiny streamlined machine\033[0m!",
 	"finds a rare item>\n\033[1;33mIs this any good? 'Cause it looks awesome!\033[0m",
 	"finds a rare item>\n\033[1;33mMine!\033[0m",
 	"finds a rare item>\n\033[1;33mI'm rich!\033[0m",
@@ -147,6 +147,8 @@ void	ScavTrap::takeDamage( unsigned int amount )
 	
 	std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 	std::cout << quete << std::endl;
+
+	std::cout << "\t\t\t" <<m_hitPoints << "/" << m_maxHitPoints << std::endl;
 }
 
 void	ScavTrap::beRepaired( unsigned int amount )
@@ -174,5 +176,6 @@ void	ScavTrap::challengeNewcomer( std::string const &target )
 		m_energyPoints -= COST_ENERGY_SC;
 		std::string skill = skillTree[rand() % (sizeof(skillTree) / sizeof(skillTree[0]))];
 		std::cout << "<\033[1;92m" << m_name << "\033[0m " << skill << std::endl;
+		std::cout << "<and avoids a fight with " << target << ">" << std::endl;
 	}
 }

@@ -1,44 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 12:18:37 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 11:37:14 by sgath            ###   ########.fr       */
+/*   Created: 2021/05/27 14:33:15 by sgath             #+#    #+#             */
+/*   Updated: 2021/05/28 14:25:31 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
+#include <string>
+#include <cstdlib>
 
-class ScavTrap : public ClapTrap
+enum FuckClap
+{
+	COST_ENERGY_FR = 25,
+	SKILL_FR = 5,
+	MAX_HP = 100,
+	MAX_MANA = 50,
+	MIN = 0,
+	COST_ENERGY_SC = 7,
+	SUPER_SECRET_ATTACK = 15,
+};
+
+class ClapTrap
 {
 private:
-	static std::string skillTree[];
 
 protected:
 	std::string m_name;
+	int m_level;
+	int m_hitPoints;
+	int m_energyPoints;
+	const static int m_meleeAttackDamage = 20;
+	const static int m_rangedAttackDamage = 15;
+	const static int m_armorDamageReduction = 3;
+	const static int m_maxHitPoints = MAX_HP;
+	const static int m_maxEnergyPoints = MAX_MANA;
 	static std::string quetesAttack[];
 	static std::string quetesDamage[];
 	static std::string quetesRepaired[];
 
 public:
-	ScavTrap( std::string name );
-	ScavTrap( ScavTrap const &scavCopy );
-	~ScavTrap( );
-	ScavTrap	operator=( ScavTrap const &scavValue );
-
+	ClapTrap();
+	ClapTrap( std::string const name );
+	ClapTrap( ClapTrap const &copy );
+	~ClapTrap( );
+	ClapTrap	operator=( ClapTrap const &fragValue );
+	
+	std::string	getName( );
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
-	
-	void		challengeNewcomer( std::string const &target );
-	
+
 };
 
 #endif
