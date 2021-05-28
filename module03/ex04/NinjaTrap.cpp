@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   NinjaTrap.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:54:29 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 16:10:29 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 21:12:51 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap( ) : ClapTrap( )
+NinjaTrap::NinjaTrap( ) :							ClapTrap( ), m_hitPoints(m_maxHitPoints),
+													m_energyPoints(m_maxEnergyPoints)
 {
-	std::cout << "\033[1;235m*noise*\033[0m" << std::endl;
+	std::cout << "\033[1;235m*ninja noise*\033[0m" << std::endl;
 }
 
-NinjaTrap::NinjaTrap( std::string const name ) :	ClapTrap(name)
+NinjaTrap::NinjaTrap( std::string const name ) :	ClapTrap(name), m_hitPoints(m_maxHitPoints),
+													m_energyPoints(m_maxEnergyPoints)
 {
 	std::cout << "<you created Interplanetary Ninja Assassin models the INAC-TP \"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mHey everybody! Check out my package!\033[0m" << std::endl;
@@ -37,7 +39,7 @@ NinjaTrap::NinjaTrap( NinjaTrap const &ninjaCopy)
 NinjaTrap::~NinjaTrap( )
 {
 	if (m_name == "EXE" || m_name == "")
-		std::cout << "\033[1;235m*krrrrr-krrrr*\033[0m" << std::endl;
+		std::cout << "\033[1;235m*krrrrr-krrrr ninja*\033[0m" << std::endl;
 	else
 	{
 		std::cout << "<you hear strange sounds. \033[1;59mKnock-Knock.\033[0m " << 
@@ -59,7 +61,7 @@ NinjaTrap	NinjaTrap::operator=( NinjaTrap const &ninjaValue )
 
 void		NinjaTrap::ninjaShoebox( )
 {
-	std::cout << "\033[1;33mOh. My. God. What if I'm like... a fish? And, if I'm not moving..." <<
+	std::cout << "\033[1;33mOh. My. God. What if I'm like... a fish? And, if I'm not moving..." << std::endl <<
 	"I stop breathing? AND THEN I'LL DIE! HELP ME! HELP MEEEEE HEE HEE HEEE! HHHHHHHELP\033[0m" << std::endl;
 	std::cout << "<\033[1;92m" << m_name << "\033[0m is idle now>" << std::endl;
 	m_energyPoints += rand() % SUPER_SECRET_ATTACK;

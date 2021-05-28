@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:31:53 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 15:44:56 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 21:28:12 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ protected:
 	std::string m_name;
 	int m_hitPoints;
 	int m_energyPoints;
-	const static int m_level = 1;
 	const static int m_maxHitPoints = FragTrap::m_maxHitPoints;
 	const static int m_maxEnergyPoints = NinjaTrap::m_maxEnergyPoints;
 	const static int m_meleeAttackDamage = NinjaTrap::m_meleeAttackDamage;
@@ -42,3 +41,4 @@ public:
 };
 
 #endif
+

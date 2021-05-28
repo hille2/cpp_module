@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 16:06:30 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 21:33:19 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void			actionsINAC( NinjaTrap &ninja, FragTrap &flap, ClapTrap &clap, ScavTrap &
 		ninja.beRepaired(randAmount());
 	else if (command == "5")
 	{
-		std::cout << "choose a target:\n1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\t" << std::endl;
+		std::cout << "choose a target:\n1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\t 4. Relax" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "1")
 			ninja.ninjaShoebox(flap);
@@ -177,6 +177,8 @@ void			actionsINAC( NinjaTrap &ninja, FragTrap &flap, ClapTrap &clap, ScavTrap &
 			ninja.ninjaShoebox(scav);
 		else if (command == "3")
 			ninja.ninjaShoebox(clap);
+		else if (command == "4")
+			ninja.ninjaShoebox();
 	}
 	else if (command == "6")
 		return ;

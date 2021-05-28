@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:12 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 15:04:10 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 21:35:19 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void		ClapTrap::takeDamage( unsigned int amount )
 	std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 	std::cout << quete << std::endl;
 
-	std::cout << "\t\t\t" <<m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
 }
 
 void		ClapTrap::beRepaired( unsigned int amount )

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:18:33 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 15:14:44 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 21:41:29 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap( std::string const name ) :	m_name(name)
 	std::cout << "\033[1;59m<oh, no! YOU AGAIN?>\033[0m" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &scavCopy)
+ScavTrap::ScavTrap( ScavTrap const &scavCopy )
 {
 	m_name = scavCopy.m_name;
 	m_hitPoints = scavCopy.m_hitPoints;
@@ -93,7 +93,7 @@ std::string	ScavTrap::skillTree[] =
 ScavTrap	ScavTrap::operator=(ScavTrap const &scavValue)
 {
 	m_name = scavValue.m_name;
-	m_level = scavValue.m_level;
+	m_energyPoints = scavValue.m_energyPoints;
 	m_hitPoints = scavValue.m_hitPoints;
 
 	return (*this);
@@ -111,6 +111,9 @@ void		ScavTrap::rangedAttack( std::string const &target)
 	
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
+
+	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
 }
 
 void		ScavTrap::meleeAttack( std::string const &target)
@@ -120,29 +123,53 @@ void		ScavTrap::meleeAttack( std::string const &target)
 	
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
+
+	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
 }
 
 void		ScavTrap::takeDamage( unsigned int amount )
 {
-	m_hitPoints = ((m_hitPoints - (amount - m_armorDamageReduction)) < MIN) ? MIN : (m_hitPoints - (amount - m_armorDamageReduction));
-	std::cout << "<SC4V-TP \033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
-	<< amount << "\033[0m points of damage!>" << std::endl;
-	std::cout << "<armor extinguishes \033[1;77m" << m_rangedAttackDamage << "\033[0m damage>" << std::endl;
-	std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
-	std::cout << quete << std::endl;
+	if ( amount >= m_armorDamageReduction)
+		m_hitPoints -= (amount - m_armorDamageReduction); 
+	if (m_hitPoints > MIN)
+	{
+		m_hitPoints = ((m_hitPoints - (amount - m_armorDamageReduction)) < MIN) ? MIN : (m_hitPoints - (amount - m_armorDamageReduction));
+		std::cout << "<SC4V-TP \033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
+		<< amount << "\033[0m points of damage!>" << std::endl;
+		std::cout << "<armor extinguishes \033[1;77m" << m_rangedAttackDamage << "\033[0m damage>" << std::endl;
+		std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
+		std::cout << quete << std::endl;
+	}
+	else
+	{
+		m_hitPoints = MIN;
+		std::cout << "<\033[1;92m" << m_name << "\033[0m was knocked out>" << std::endl;
+	}
 
-	std::cout << "\t\t\t" <<m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
 }
 
 void		ScavTrap::beRepaired( unsigned int amount )
 {
-	m_hitPoints = ((m_hitPoints + amount) > MAX_HP) ? MAX_HP : (m_hitPoints + amount);
+	m_hitPoints += amount;
+	if (m_hitPoints <= m_maxHitPoints)
+	{
+		std::cout << "<SC4V-TP \033[1;92m" << m_name << "\033[0m restores health by \033[1;34m"
+		<< amount << "\033[0m points!>" << std::endl;
+		
+		std::string quete = quetesRepaired[rand() % (sizeof(quetesRepaired) / sizeof(quetesRepaired[0]))];
+		std::cout << quete << std::endl;
+	}
+	else
+	{
+		m_hitPoints = m_maxHitPoints;
+		std::cout << "<\033[1;92m" << m_name << "\033[0m is already in full health>" << std::endl;
+	}
 
-	std::cout << "<SC4V-TP \033[1;92m" << m_name << "\033[0m restores health by \033[1;34m"
-	<< amount << "\033[0m points!>" << std::endl;
-	
-	std::string quete = quetesRepaired[rand() % (sizeof(quetesRepaired) / sizeof(quetesRepaired[0]))];
-	std::cout << quete << std::endl;
+	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
 }
 
 void		ScavTrap::challengeNewcomer( std::string const &target )
@@ -156,7 +183,10 @@ void		ScavTrap::challengeNewcomer( std::string const &target )
 	{
 		m_energyPoints -= COST_ENERGY_SC;
 		std::string skill = skillTree[rand() % (sizeof(skillTree) / sizeof(skillTree[0]))];
-		std::cout << "<\033[1;92m" << m_name << "\033[0m " << skill << std::endl;
-		std::cout << "<and avoids a fight with " << target << ">" << std::endl;
+		std::cout << "<\033[1;92m" << m_name << "\033[0m " << skill;;
+		std::cout << "and avoids a fight with " << target << ">" << std::endl;
 	}
+
+	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
 }

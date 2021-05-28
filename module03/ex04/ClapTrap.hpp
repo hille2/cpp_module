@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:15 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:25:31 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 20:49:51 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ enum FuckClap
 {
 	COST_ENERGY_FR = 25,
 	SKILL_FR = 5,
-	MAX_HP = 100,
-	MAX_MANA = 50,
 	MIN = 0,
 	COST_ENERGY_SC = 7,
 	SUPER_SECRET_ATTACK = 15,
@@ -34,14 +32,14 @@ private:
 
 protected:
 	std::string m_name;
-	int m_level;
 	int m_hitPoints;
 	int m_energyPoints;
+	const static int m_level = 1;
 	const static int m_meleeAttackDamage = 20;
 	const static int m_rangedAttackDamage = 15;
 	const static int m_armorDamageReduction = 3;
-	const static int m_maxHitPoints = MAX_HP;
-	const static int m_maxEnergyPoints = MAX_MANA;
+	const static int m_maxHitPoints = 100;
+	const static int m_maxEnergyPoints = 50;
 	static std::string quetesAttack[];
 	static std::string quetesDamage[];
 	static std::string quetesRepaired[];
