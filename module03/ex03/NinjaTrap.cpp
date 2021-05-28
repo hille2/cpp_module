@@ -6,14 +6,13 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:54:29 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:27:27 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 14:54:34 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap( std::string name ) :	m_name(name), m_level(1), m_hitPoints(MAX_HP_NJ),
-											m_energyPoints(MAX_MANA_NJ)
+NinjaTrap::NinjaTrap( std::string name ) :	ClapTrap(name)
 {
 	std::cout << "<you created Interplanetary Ninja Assassin models the INAC-TP \"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mHey everybody! Check out my package!\033[0m" << std::endl;
@@ -67,6 +66,16 @@ void		NinjaTrap::ninjaShoebox( ClapTrap &clap )
 		clap.takeDamage(m_meleeAttackDamage);
 	}
 	
+}
+
+void		NinjaTrap::ninjaShoebox( )
+{
+	std::cout << "\033[1;33mOh. My. God. What if I'm like... a fish? And, if I'm not moving..." <<
+	"I stop breathing? AND THEN I'LL DIE! HELP ME! HELP MEEEEE HEE HEE HEEE! HHHHHHHELP\033[0m" << std::endl;
+	std::cout << "<\033[1;92m" << m_name << "\033[0m is idle now>" << std::endl;
+	m_energyPoints += rand() % SUPER_SECRET_ATTACK;
+	if (m_energyPoints > m_maxEnergyPoints)
+		m_energyPoints = m_maxEnergyPoints;
 }
 
 void		NinjaTrap::ninjaShoebox( ScavTrap &scav )

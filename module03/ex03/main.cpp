@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:23:14 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 15:53:30 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,16 @@
 #include "NinjaTrap.hpp"
 
 void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap, 
-			std::string *nameClapTrap)
+			std::string *nameClapTrap, std::string *nameNinja)
 {
-	static int firstEntry = 0;
-
-	if (firstEntry == 0)
-	{
 		std::cout << "╔═╗─╔╗╔═══╗──────     ╔══╗╔════╗╔═══╗     ╔═══╗╔═══╗╔═══╗╔══╗╔═══╗╔═══╗" << std::endl;
 		std::cout << "║║╚╗║║║╔═╗║──────     ╚╣─╝║╔╗╔╗║║╔═╗║     ║╔══╝║╔═╗║║╔═╗║╚╣─╝║╔══╝║╔═╗║" << std::endl;
 		std::cout << "║╔╗╚╝║║║─║║╔╗╔╗╔╗     ─║║─╚╝║║╚╝║╚══╗     ║╚══╗║║─║║║╚══╗─║║─║╚══╗║╚═╝║" << std::endl;
 		std::cout << "║║╚╗║║║║─║║║╚╝╚╝║     ─║║───║║──╚══╗║     ║╔══╝║╚═╝║╚══╗║─║║─║╔══╝║╔╗╔╝" << std::endl;
 		std::cout << "║║─║║║║╚═╝║╚╗╔╗╔╝     ╔╣─╗──║║──║╚═╝║     ║╚══╗║╔═╗║║╚═╝║╔╣─╗║╚══╗║║║╚╗" << std::endl;
 		std::cout << "╚╝─╚═╝╚═══╝─╚╝╚╝─     ╚══╝──╚╝──╚═══╝     ╚═══╝╚╝─╚╝╚═══╝╚══╝╚═══╝╚╝╚═╝" << std::endl;
-		std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP, CL4P-TP INAC-TR." << std::endl <<
-		"INAC-TR name if EVIL, hi very bad robot" <<std::endl;
-		firstEntry = 1;
-	}
+		std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP, CL4P-TP and INAC-TR." << std::endl <<
+		"INAC-TR very bad robot" <<std::endl;
 	
 	std::cout << "Please enter a name your CL4P-TP:"<< std::endl;
 	while (*nameClapTrap == "")
@@ -55,6 +49,14 @@ void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap,
 		std::getline(std::cin, *nameScavTrap);
 		if (*nameScavTrap== "")
 			std::cout << "name SC4V-TP must not be empty" << std::endl;
+	}
+
+	std::cout << "Please enter a name your INAC-TP:"<< std::endl;
+	while (*nameNinja == "")
+	{
+		std::getline(std::cin, *nameNinja);
+		if (*nameNinja== "")
+			std::cout << "name INAC-TP must not be empty" << std::endl;
 	}
 }
 
@@ -201,15 +203,16 @@ int				main( )
 	std::string nameScavTrap;
 	std::string nameFrapTrap;
 	std::string nameClapTrap;
+	std::string nameNinjaTrap;
 	std::string command;
 
 	srand(static_cast<unsigned int>(time(0)));
-	greetingTitle(&nameFrapTrap, &nameScavTrap, &nameClapTrap);
+	greetingTitle(&nameFrapTrap, &nameScavTrap, &nameClapTrap, &nameNinjaTrap);
 	
 	ClapTrap clap(nameClapTrap);
 	FragTrap flap(nameFrapTrap);
 	ScavTrap scav(nameScavTrap);
-	NinjaTrap ninja("EVIL");
+	NinjaTrap ninja(nameNinjaTrap);
 	
 	while(1)
 	{

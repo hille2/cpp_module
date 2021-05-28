@@ -6,13 +6,13 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:12 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:19:12 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 15:04:10 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( ) : m_name("EVIL"), m_hitPoints(MAX_HP), m_energyPoints(MAX_MANA)
+ClapTrap::ClapTrap( ) : m_name("EXE"), m_hitPoints(MAX_HP), m_energyPoints(MAX_MANA)
 {
 	std::cout << "\033[1;235m*brrrrr-brrrr*\033[0m" << std::endl;
 }
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap( ClapTrap const &clapCopy )
 
 ClapTrap::~ClapTrap( )
 {
-	if (m_name == "EVIL")
+	if (m_name == "EXE")
 		std::cout << "\033[1;235m*trrrrr-trrrr*\033[0m" << std::endl;
 	else
 	{

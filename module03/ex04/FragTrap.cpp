@@ -6,11 +6,16 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:25 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:25:58 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 16:11:32 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap( ) : ClapTrap()
+{
+	std::cout << "\033[1;235m*hubbub*\033[0m" << std::endl;
+}
 
 FragTrap::FragTrap( std::string const name ) :	m_name(name), m_level(1), m_hitPoints(MAX_HP),
 												m_energyPoints(MAX_HP)
@@ -30,9 +35,14 @@ FragTrap::FragTrap( FragTrap const &copy ) :	m_name(copy.m_name), m_level(copy.m
 
 FragTrap::~FragTrap( )
 {
-	std::cout << "<Claptrap models the FR4G-TP dies \"\033[1;92m" << m_name << "\033[0m\"> :" << std::endl <<
-	"\033[1;33mOh my God, I'm leaking! I think I'm leaking! Ahhhh, I'm leaking! There's oil everywhere!\033[0m" << std::endl;
-	std::cout << "<finally we are free from chatter>" << std::endl;
+	if (m_name == "EXE" || m_name == "")
+		std::cout << "\033[1;235m*frrrrr-frrrr*\033[0m" << std::endl;
+	else
+	{
+		std::cout << "<Claptrap models the FR4G-TP dies \"\033[1;92m" << m_name << "\033[0m\"> :" << std::endl <<
+		"\033[1;33mOh my God, I'm leaking! I think I'm leaking! Ahhhh, I'm leaking! There's oil everywhere!\033[0m" << std::endl;
+		std::cout << "<finally we are free from chatter>" << std::endl;
+	}
 }
 
 std::string	FragTrap::quetesAttack[] =

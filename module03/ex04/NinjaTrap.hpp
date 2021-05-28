@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:54:32 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:26:22 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 15:14:08 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ protected:
 	static std::string quetesRepaired[];
 
 public:
-	//NinjaTrap( );
-	NinjaTrap( std::string name );
+	NinjaTrap( );
+	NinjaTrap( std::string const name );
 	NinjaTrap( NinjaTrap const &copy );
 	~NinjaTrap( );
 	NinjaTrap	operator=( NinjaTrap const &NinjaValue );
 
+	void		ninjaShoebox( );
 	void		ninjaShoebox( ClapTrap &clap );
 	void		ninjaShoebox( FragTrap &frag );
 	void		ninjaShoebox( ScavTrap &scav );

@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:21 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 13:42:39 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 15:01:47 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ protected:
 	static std::string quetesRepaired[];
 
 public:
-	
+	FragTrap( );
 	FragTrap( std::string const name );
 	FragTrap( FragTrap const &copy );
 	~FragTrap();

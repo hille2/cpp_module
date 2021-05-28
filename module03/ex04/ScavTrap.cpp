@@ -6,13 +6,13 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:18:33 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 14:19:12 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/28 15:14:44 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( std::string name ) :	m_name(name)
+ScavTrap::ScavTrap( std::string const name ) :	m_name(name)
 {
 	std::cout << "<you created the ScavTrap models the SC4V-TP \"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mSecret handshake!\033[0m" << std::endl;
