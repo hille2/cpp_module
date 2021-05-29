@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 15:53:05 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/29 10:38:45 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void			newRobot(std::string &name)
 {
 	name = greetingTitle();
 	FragTrap robot(name);
-	std::cout << "<sorry\033[1;92m " << name << "\033[0m cat't live forever>" << std::endl;
+	std::cout << "<sorry\033[1;92m " << robot.getName() << "\033[0m cat't live forever>" << std::endl;
 }
 
 int				main()
@@ -116,7 +116,10 @@ int				main()
 		else if (command == "4")
 			robot->beRepaired(randAmount());
 		else if (command == "5")
+		{
 			FragTrap robot3 = *robot;
+			std::cout << "<sorry\033[1;92m clone\033[0m cat't live forever>" << std::endl;
+		}
 		else if (command == "6")
 			break ;
 		else if (command == "7")

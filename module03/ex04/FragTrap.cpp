@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:25 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:41:38 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 09:33:54 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ void		FragTrap::rangedAttack( std::string const &target )
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		FragTrap::meleeAttack( std::string const &target )
@@ -136,8 +136,8 @@ void		FragTrap::meleeAttack( std::string const &target )
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		FragTrap::takeDamage( unsigned int amount )
@@ -149,7 +149,7 @@ void		FragTrap::takeDamage( unsigned int amount )
 	{
 		std::cout << "<FR4G-TP \033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
 		<< amount << "\033[0m points of damage!>" << std::endl;
-		std::cout << "<armor extinguishes \033[1;77m" << m_rangedAttackDamage << "\033[0m damage>" << std::endl;
+		std::cout << "<armor extinguishes \033[1;77m" << m_armorDamageReduction << "\033[0m damage>" << std::endl;
 		std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 		std::cout << quete << std::endl;
 	}
@@ -159,8 +159,8 @@ void		FragTrap::takeDamage( unsigned int amount )
 		std::cout << "<\033[1;92m" << m_name << "\033[0m was knocked out>" << std::endl;
 	}	
 	
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t HP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t EH " << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
 }
 
 void		FragTrap::beRepaired(unsigned int amount )
@@ -180,8 +180,8 @@ void		FragTrap::beRepaired(unsigned int amount )
 		std::cout << "<\033[1;92m" << m_name << "\033[0m is already in full health>" << std::endl;
 	}
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		FragTrap::vaulthunter_dot_exe( std::string const &target )
@@ -203,6 +203,6 @@ void		FragTrap::vaulthunter_dot_exe( std::string const &target )
 		std::cout << quete << std::endl;
 	}
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }

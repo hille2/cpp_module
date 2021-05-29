@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:31:53 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:28:12 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 09:27:36 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "NinjaTrap.hpp"
 #include "FragTrap.hpp"
 
-class SuperTrap :public NinjaTrap, public FragTrap
+class SuperTrap : virtual public NinjaTrap, virtual public FragTrap
 {
 private:
 

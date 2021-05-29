@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:12 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:40:47 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 10:05:46 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap( ) :						m_name("EXE"), m_hitPoints(m_maxHitPoints),
 }
 
 ClapTrap::ClapTrap( std::string name ) :	m_name(name), m_hitPoints(m_maxHitPoints), 
-											m_energyPoints(m_maxHitPoints)
+											m_energyPoints(m_maxEnergyPoints)
 {
 	std::cout << "<you created the ClapTrap models the CL4P-TP \"\033[1;92m" 
 	<< m_name << "\033[0m\"> :" << std::endl << "\033[1;33mRecompiling my combat code!\033[0m" << std::endl;
@@ -113,8 +113,8 @@ void		ClapTrap::rangedAttack( std::string const &target )
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 	
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ClapTrap::meleeAttack( std::string const &target )
@@ -125,8 +125,8 @@ void		ClapTrap::meleeAttack( std::string const &target )
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ClapTrap::takeDamage( unsigned int amount )
@@ -137,7 +137,7 @@ void		ClapTrap::takeDamage( unsigned int amount )
 	{
 		std::cout << "<\033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
 		<< amount << "\033[0m points of damage!>" << std::endl;
-		std::cout << "<armor extinguishes \033[1;77m" << m_rangedAttackDamage << "\033[0m damage>" << std::endl;
+		std::cout << "<armor extinguishes \033[1;77m" << m_armorDamageReduction << "\033[0m damage>" << std::endl;
 		std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 		std::cout << quete << std::endl;
 	}
@@ -147,13 +147,12 @@ void		ClapTrap::takeDamage( unsigned int amount )
 		std::cout << "<\033[1;92m" << m_name << "\033[0m was knocked out>" << std::endl;
 	}
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ClapTrap::beRepaired( unsigned int amount )
 {
-	//m_hitPoints = ((m_hitPoints + amount) > MAX_HP) ? MAX_HP : (m_hitPoints + amount);
 	m_hitPoints += amount;
 	if (m_hitPoints <= m_maxHitPoints)
 	{
@@ -168,6 +167,6 @@ void		ClapTrap::beRepaired( unsigned int amount )
 		m_hitPoints = m_maxHitPoints;
 		std::cout << "<\033[1;92m" << m_name << "\033[0m is already in full health>" << std::endl;
 	}
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }

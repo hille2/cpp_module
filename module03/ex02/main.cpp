@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 15:51:18 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/29 10:12:06 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,54 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-void		greetingTitle(std::string *nameFrapTrap, std::string *nameScavTrap, 
-			std::string *nameClapTrap)
-{
-	static int firstEntry = 0;
 
-	if (firstEntry == 0)
-	{
-		std::cout << "╔═══╗╔═══╗╔═══╗╔═══╗╔════╗╔══╗╔════╗╔══╗╔╗──╔╗╔═══╗     ──────╔═══╗╔═══╗╔╗╔═╗" << std::endl;
-		std::cout << "║╔═╗║║╔══╝║╔═╗║║╔══╝║╔╗╔╗║╚╣─╝║╔╗╔╗║╚╣─╝║╚╗╔╝║║╔══╝     ──────║╔═╗║║╔═╗║║║║╔╝" << std::endl;
-		std::cout << "║╚═╝║║╚══╗║╚═╝║║╚══╗╚╝║║╚╝─║║─╚╝║║╚╝─║║─╚╗║║╔╝║╚══╗     ╔╗╔╗╔╗║║─║║║╚═╝║║╚╝╝─" << std::endl;
-		std::cout << "║╔╗╔╝║╔══╝║╔══╝║╔══╝──║║───║║───║║───║║──║╚╝║─║╔══╝     ║╚╝╚╝║║║─║║║╔╗╔╝║╔╗║─" << std::endl;
-		std::cout << "║║║╚╗║╚══╗║║───║╚══╗──║║──╔╣─╗──║║──╔╣─╗─╚╗╔╝─║╚══╗     ╚╗╔╗╔╝║╚═╝║║║║╚╗║║║╚╗" << std::endl;
-		std::cout << "╚╝╚═╝╚═══╝╚╝───╚═══╝──╚╝──╚══╝──╚╝──╚══╝──╚╝──╚═══╝     ─╚╝╚╝─╚═══╝╚╝╚═╝╚╝╚═╝" << std::endl;
-		std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP and CL4P-TP."
-		<<std::endl; 
-		firstEntry = 1;
-	}
+void		greetingTitle(std::string *name)
+{
+	std::cout << "╔═══╗╔═══╗╔═══╗╔═══╗╔════╗╔══╗╔════╗╔══╗╔╗──╔╗╔═══╗     ──────╔═══╗╔═══╗╔╗╔═╗" << std::endl;
+	std::cout << "║╔═╗║║╔══╝║╔═╗║║╔══╝║╔╗╔╗║╚╣─╝║╔╗╔╗║╚╣─╝║╚╗╔╝║║╔══╝     ──────║╔═╗║║╔═╗║║║║╔╝" << std::endl;
+	std::cout << "║╚═╝║║╚══╗║╚═╝║║╚══╗╚╝║║╚╝─║║─╚╝║║╚╝─║║─╚╗║║╔╝║╚══╗     ╔╗╔╗╔╗║║─║║║╚═╝║║╚╝╝─" << std::endl;
+	std::cout << "║╔╗╔╝║╔══╝║╔══╝║╔══╝──║║───║║───║║───║║──║╚╝║─║╔══╝     ║╚╝╚╝║║║─║║║╔╗╔╝║╔╗║─" << std::endl;
+	std::cout << "║║║╚╗║╚══╗║║───║╚══╗──║║──╔╣─╗──║║──╔╣─╗─╚╗╔╝─║╚══╗     ╚╗╔╗╔╝║╚═╝║║║║╚╗║║║╚╗" << std::endl;
+	std::cout << "╚╝╚═╝╚═══╝╚╝───╚═══╝──╚╝──╚══╝──╚╝──╚══╝──╚╝──╚═══╝     ─╚╝╚╝─╚═══╝╚╝╚═╝╚╝╚═╝" << std::endl;
+	std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP and CL4P-TP." <<std::endl; 
+
 	
-	std::cout << "Please enter a name your CL4P-TP:"<< std::endl;
-	while (*nameClapTrap == "")
+	std::cout << "want to fill in names automatically?" <<std::endl;
+	std::cout << "\033[1;42mYES\033[0m\t\t\t\t \033[1;42mNO\033[0m" <<std::endl;
+
+	std::getline(std::cin, name[0]);
+	if (name[0] == "yes" || name[0] == "y" || name[0] == "YES" || name[0] == "Y")
 	{
-		std::getline(std::cin, *nameClapTrap);
-		if (*nameClapTrap== "")
-			std::cout << "nameCL4P-TP must not be empty" << std::endl;
+		name[0] = "BOB";
+		name[1] = "SIMONA";
+		name[2] = "MORDECAI";
 	}
-	
-	std::cout << "Please enter a name your FR4G-TP:"<< std::endl;
-	while (*nameFrapTrap == "")
+	else
 	{
-		std::getline(std::cin, *nameFrapTrap);
-		if (*nameFrapTrap == "")
-			std::cout << "name FR4G-TP must not be empty" << std::endl;
-	}
-	std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
-	
-	while (*nameScavTrap == "")
-	{
-		std::getline(std::cin, *nameScavTrap);
-		if (*nameScavTrap== "")
-			std::cout << "name SC4V-TP must not be empty" << std::endl;
+		std::cout << "Please enter a name your CL4P-TP:"<< std::endl;
+		std::getline(std::cin, name[0]);
+		while (name[0] == "")
+		{
+			std::getline(std::cin, name[0]);
+			if (name[0] == "")
+				std::cout << "nameCL4P-TP must not be empty" << std::endl;
+		}
+		
+		std::cout << "Please enter a name your FR4G-TP:"<< std::endl;
+		while (name[1] == "")
+		{
+			std::getline(std::cin, name[1]);
+			if (name[1] == "")
+				std::cout << "name FR4G-TP must not be empty" << std::endl;
+		}
+		
+		std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
+		while (name[2] == "")
+		{
+			std::getline(std::cin, name[2]);
+			if (name[2] == "")
+				std::cout << "name SC4V-TP must not be empty" << std::endl;
+		}
 	}
 }
 
@@ -165,21 +173,20 @@ void			actionsCL4P( ClapTrap &clap)
 
 int				main( )
 {
-	std::string nameScavTrap;
-	std::string nameFrapTrap;
-	std::string nameClapTrap;
-	std::string command;
+	std::string name[3];
+		std::string command;
 
 	srand(static_cast<unsigned int>(time(0)));
-	greetingTitle(&nameFrapTrap, &nameScavTrap, &nameClapTrap);
+	greetingTitle(name);
 	
-	ClapTrap clap(nameClapTrap);
-	FragTrap flap(nameFrapTrap);
-	ScavTrap scav(nameScavTrap);
+	ClapTrap clap(name[0]);
+	FragTrap flap(name[1]);
+	ScavTrap scav(name[2]);
+
 	
 	while(1)
 	{
-		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP" << std::endl;
+		std::cout << "select the robot model:" << std::endl << "\033[1;44m1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\033[0m" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "1")
 			actionsFL4G(flap);

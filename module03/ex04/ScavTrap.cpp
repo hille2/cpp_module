@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:18:33 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:41:29 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 10:21:58 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ void		ScavTrap::rangedAttack( std::string const &target)
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ScavTrap::meleeAttack( std::string const &target)
@@ -124,8 +124,8 @@ void		ScavTrap::meleeAttack( std::string const &target)
 	std::string quete = quetesAttack[rand() % (sizeof(quetesAttack) / sizeof(quetesAttack[0]))];
 	std::cout << quete << std::endl;
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ScavTrap::takeDamage( unsigned int amount )
@@ -134,10 +134,10 @@ void		ScavTrap::takeDamage( unsigned int amount )
 		m_hitPoints -= (amount - m_armorDamageReduction); 
 	if (m_hitPoints > MIN)
 	{
-		m_hitPoints = ((m_hitPoints - (amount - m_armorDamageReduction)) < MIN) ? MIN : (m_hitPoints - (amount - m_armorDamageReduction));
+		
 		std::cout << "<SC4V-TP \033[1;92m" << m_name << "\033[0m takes damage and loses \033[1;34m"
 		<< amount << "\033[0m points of damage!>" << std::endl;
-		std::cout << "<armor extinguishes \033[1;77m" << m_rangedAttackDamage << "\033[0m damage>" << std::endl;
+		std::cout << "<armor extinguishes \033[1;77m" << m_armorDamageReduction << "\033[0m damage>" << std::endl;
 		std::string quete = quetesDamage[rand() % (sizeof(quetesDamage) / sizeof(quetesDamage[0]))];
 		std::cout << quete << std::endl;
 	}
@@ -147,8 +147,8 @@ void		ScavTrap::takeDamage( unsigned int amount )
 		std::cout << "<\033[1;92m" << m_name << "\033[0m was knocked out>" << std::endl;
 	}
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ScavTrap::beRepaired( unsigned int amount )
@@ -168,8 +168,8 @@ void		ScavTrap::beRepaired( unsigned int amount )
 		std::cout << "<\033[1;92m" << m_name << "\033[0m is already in full health>" << std::endl;
 	}
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }
 
 void		ScavTrap::challengeNewcomer( std::string const &target )
@@ -187,6 +187,6 @@ void		ScavTrap::challengeNewcomer( std::string const &target )
 		std::cout << "and avoids a fight with " << target << ">" << std::endl;
 	}
 
-	std::cout << "\t\t\t\t\t HP" << m_hitPoints << "/" << m_maxHitPoints << std::endl;
-	std::cout << "\t\t\t\t\t EH" << m_energyPoints << "/" << m_maxEnergyPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;31mHP " << m_hitPoints << "/" << m_maxHitPoints << std::endl;
+	std::cout << "\t\t\t\t\t \033[01;36mEN " << m_energyPoints << "/" << m_maxEnergyPoints << "\033[0m" << std::endl;
 }

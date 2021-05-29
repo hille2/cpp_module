@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:15 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 20:49:51 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 09:27:05 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include <cstdlib>
 
-enum FuckClap
+enum FuckMagic
 {
 	COST_ENERGY_FR = 25,
 	SKILL_FR = 5,

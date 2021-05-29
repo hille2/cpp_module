@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   NinjaTrap.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:54:29 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:12:51 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 10:03:51 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		NinjaTrap::ninjaShoebox( ClapTrap &clap )
 	else
 	{
 		m_energyPoints -= m_meleeAttackDamage;
-		meleeAttack(("\033[1;92m" + getName() + "\033[0m"));
+		meleeAttack(("\033[1;92m" + clap.getName() + "\033[0m"));
 		clap.takeDamage(m_meleeAttackDamage);
 	}
 	
@@ -104,7 +104,7 @@ void		NinjaTrap::ninjaShoebox( ScavTrap &scav )
 	else
 	{
 		m_energyPoints -= m_rangedAttackDamage;
-		meleeAttack(("\033[1;92m" + getName() + "\033[0m"));
+		meleeAttack(("\033[1;92m" + scav.getName() + "\033[0m"));
 		scav.takeDamage(m_rangedAttackDamage);
 	}
 	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:33:19 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 10:11:26 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,46 +24,62 @@ void		greetingTitle(std::string *name)
 	std::cout << "║║─║║║║─╔╗──║║───║║─║║║║║║║╚═╝║──║║──║╔══╝     ║╚═╝║╚══╗║╚══╗║║╚═╝║║║─║║║║─╔╗──║║──" << std::endl;
 	std::cout << "║╚═╝║║╚═╝║──║║──╔╣─╗║║║║║║║╔═╗║──║║──║╚══╗     ║╔═╗║║╚═╝║║╚═╝║║╔═╗║║╚═╝║║╚═╝║──║║──" << std::endl;
 	std::cout << "╚═══╝╚═══╝──╚╝──╚══╝╚╝╚╝╚╝╚╝─╚╝──╚╝──╚═══╝     ╚╝─╚╝╚═══╝╚═══╝╚╝─╚╝╚═══╝╚═══╝──╚╝──" << std::endl;
-	std::cout << "Today you can create robotse: FR4G-TP, SC4V-TP, CL4P-TP, INAC-TR aaaand NED-TP" <<std::endl;
+	std::cout << "\033[1;1mToday you can create robotse: FR4G-TP, SC4V-TP, CL4P-TP, INAC-TR aaaand NED-TP" <<std::endl;
+	
+	std::cout << "want to fill in names automatically?" <<std::endl;
+	std::cout << "\033[1;42mYES\033[0m\t\t\t\t \033[1;42mNO\033[0m" <<std::endl;
 
-	std::cout << "Please enter a name your CL4P-TP:"<< std::endl;
-	while (name[0] == "")
+	std::getline(std::cin, name[0]);
+	if (name[0] == "yes" || name[0] == "y" || name[0] == "YES" || name[0] == "Y")
 	{
+		name[0] = "BOB";
+		name[1] = "SIMONA";
+		name[2] = "MORDECAI";
+		name[3] = "0x035F001";
+		name[4] = "MOXXI";
+	}
+	else
+	{
+		std::cout << "Please enter a name your CL4P-TP:"<< std::endl;
 		std::getline(std::cin, name[0]);
-		if (name[0] == "")
-			std::cout << "nameCL4P-TP must not be empty" << std::endl;
-	}
-	
-	std::cout << "Please enter a name your FR4G-TP:"<< std::endl;
-	while (name[1] == "")
-	{
-		std::getline(std::cin, name[1]);
-		if (name[1] == "")
-			std::cout << "name FR4G-TP must not be empty" << std::endl;
-	}
-	
-	std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
-	while (name[2] == "")
-	{
-		std::getline(std::cin, name[2]);
-		if (name[2] == "")
-			std::cout << "name SC4V-TP must not be empty" << std::endl;
-	}
+		while (name[0] == "")
+		{
+			std::getline(std::cin, name[0]);
+			if (name[0] == "")
+				std::cout << "nameCL4P-TP must not be empty" << std::endl;
+		}
+		
+		std::cout << "Please enter a name your FR4G-TP:"<< std::endl;
+		while (name[1] == "")
+		{
+			std::getline(std::cin, name[1]);
+			if (name[1] == "")
+				std::cout << "name FR4G-TP must not be empty" << std::endl;
+		}
+		
+		std::cout << "Please enter a name your SC4V-TP:"<< std::endl;
+		while (name[2] == "")
+		{
+			std::getline(std::cin, name[2]);
+			if (name[2] == "")
+				std::cout << "name SC4V-TP must not be empty" << std::endl;
+		}
 
-	std::cout << "Please enter a name your INAC-TP:"<< std::endl;
-	while (name[3] == "")
-	{
-		std::getline(std::cin, name[3]);
-		if (name[3]== "")
-			std::cout << "name INAC-TP must not be empty" << std::endl;
-	}
-	
-	std::cout << "Please enter a name your NED-TP:"<< std::endl;
-	while (name[4] == "")
-	{
-		std::getline(std::cin, name[4]);
-		if (name[4]== "")
-			std::cout << "name NED-TP must not be empty" << std::endl;
+		std::cout << "Please enter a name your INAC-TP:"<< std::endl;
+		while (name[3] == "")
+		{
+			std::getline(std::cin, name[3]);
+			if (name[3]== "")
+				std::cout << "name INAC-TP must not be empty" << std::endl;
+		}
+		
+		std::cout << "Please enter a name your NED-TP:"<< std::endl;
+		while (name[4] == "")
+		{
+			std::getline(std::cin, name[4]);
+			if (name[4]== "")
+				std::cout << "name NED-TP must not be empty" << std::endl;
+		}
 	}
 }
 
@@ -239,7 +255,7 @@ int				main( )
 	
 	while(1)
 	{
-		std::cout << "select the robot model:" << std::endl << "1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\t 4. INAC-TP\t 5. NED-TR" << std::endl;
+		std::cout << "select the robot model:" << std::endl << "\033[1;44m1. FL4G-TP\t 2. SC4V-TP\t 3. CL4P-TP\t 4. INAC-TP\t 5. NED-TR\033[0m" << std::endl;
 		std::getline(std::cin, command);
 		if (command == "1")
 			actionsFL4G(flap);
