@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/30 11:21:46 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/02 23:31:03 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,31 @@ Sorcerer::~Sorcerer( )
 	<< std::endl;
 }
 
-Sorcerer	Sorcerer::operator=( Sorcerer const &sorcererValue )
+Sorcerer		Sorcerer::operator=( Sorcerer const &sorcererValue )
 {
 	m_name = sorcererValue.m_name;
 	m_title = sorcererValue.m_title;
 }
 
-void		Sorcerer::createPolymorphism( Victim &victim)
+void			Sorcerer::polymorph( Victim const &victim) const
 {
-	std::cout << m_name << " <" << m_title << "> and I like ponies!!";
-	victim.m_name = "pony"
+	victim.getPolimorphed( );
+}
+
+std::string			Sorcerer::getName( )
+{
+	return (m_name);
+}
+
+std::string			Sorcerer::getTitle( )
+{
+	return (m_title);
+}
+
+std::ostream	&operator<<( std::ostream &out, Sorcerer &sorcererValue )
+{
+	out << sorcererValue.getName() << " <" << sorcererValue.getTitle() 
+	<< "> and I like ponies!!";
+	return (out);
+	
 }
