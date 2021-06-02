@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:21 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/29 10:36:32 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/29 17:48:51 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ public:
 	FragTrap();
 	FragTrap( std::string const name );
 	FragTrap( FragTrap const &copy );
-	~FragTrap();
+	virtual ~FragTrap( );
 
 	FragTrap	operator=( FragTrap const &fragValue );
 	std::string	getName( );

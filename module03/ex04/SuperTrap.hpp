@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:31:53 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/29 09:27:36 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/29 17:50:14 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ protected:
 public:
 	SuperTrap( std::string const name );
 	SuperTrap( SuperTrap &superCopy );
-	~SuperTrap();
+	virtual ~SuperTrap( );
 	SuperTrap	operator=( SuperTrap &superValue );
 	
 	void	rangedAttack(std::string const &target);

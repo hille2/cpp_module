@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:54:32 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:08:24 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 17:49:16 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	NinjaTrap( );
 	NinjaTrap( std::string const name );
 	NinjaTrap( NinjaTrap const &copy );
-	~NinjaTrap( );
+	virtual ~NinjaTrap( );
 	NinjaTrap	operator=( NinjaTrap const &NinjaValue );
 
 	void		ninjaShoebox( );

@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 14:33:15 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/29 09:27:05 by sgath            ###   ########.fr       */
+/*   Updated: 2021/05/29 17:48:18 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
 	ClapTrap();
 	ClapTrap( std::string const name );
 	ClapTrap( ClapTrap const &copy );
-	~ClapTrap( );
+	virtual ~ClapTrap( );
 	ClapTrap	operator=( ClapTrap const &fragValue );
 	
 	std::string	getName( );

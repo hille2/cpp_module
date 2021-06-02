@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:35:21 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/28 21:05:26 by yu               ###   ########.fr       */
+/*   Updated: 2021/05/29 17:48:51 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 	FragTrap( );
 	FragTrap( std::string const name );
 	FragTrap( FragTrap const &copy );
-	~FragTrap();
+	virtual ~FragTrap( );
 	FragTrap	operator=( FragTrap const &fragValue );
 	
 	std::string	getName();
