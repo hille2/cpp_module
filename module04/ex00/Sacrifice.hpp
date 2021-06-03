@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   Sacrifice.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 09:55:55 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/03 10:18:59 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/03 10:23:47 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef SACRIFICE_HPP
+#define SACRIFICE_HPP
 
-#include "Victim.hpp"
+#include "Peon.hpp"
 
-class Peon : public Victim
+class Sacrifice : public Peon
 {
 private:
 	
 public:
-	Peon( std::string const &name );
-	Peon( Peon const &peonCopy );
-	~Peon();
-	Peon	&operator=( Peon const &peonValue );
-	
-	void	getPolimorphed( ) const;
+	Sacrifice( std::string name );
+	Sacrifice( Sacrifice const &sacrificeCopy );
+	~Sacrifice();
+	Sacrifice	&operator=(Sacrifice const &sacrificeValue );
+
+	void		getPolimorphed( ) const;
 	
 };
 

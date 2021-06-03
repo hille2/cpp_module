@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/02 23:31:03 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/03 11:30:02 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
 
 Sorcerer::Sorcerer( std::string const &name, std::string const &title ) :
-					m_name("\033[1;92m" + name + "\033[0m"), m_title("\033[1;92m "+ title + "\033[0m")
+					m_name("\033[1;92m" + name + "\033[0m"), m_title("\033[1;92m"+ title + "\033[0m")
 {
 	std::cout << m_name << " <" << m_title << "> is born!" << std::endl;
 }
@@ -30,10 +30,15 @@ Sorcerer::~Sorcerer( )
 	<< std::endl;
 }
 
-Sorcerer		Sorcerer::operator=( Sorcerer const &sorcererValue )
+Sorcerer		&Sorcerer::operator=( Sorcerer const &sorcererValue )
 {
+	if (&sorcererValue == this)
+		return (*this);
+	
 	m_name = sorcererValue.m_name;
 	m_title = sorcererValue.m_title;
+
+	return (*this);
 }
 
 void			Sorcerer::polymorph( Victim const &victim) const
@@ -53,8 +58,7 @@ std::string			Sorcerer::getTitle( )
 
 std::ostream	&operator<<( std::ostream &out, Sorcerer &sorcererValue )
 {
-	out << sorcererValue.getName() << " <" << sorcererValue.getTitle() 
-	<< "> and I like ponies!!";
+	std::cout << sorcererValue.getName() << " <" << sorcererValue.getTitle() 
+	<< "> and I like ponies!!" << std::endl;
 	return (out);
-	
 }

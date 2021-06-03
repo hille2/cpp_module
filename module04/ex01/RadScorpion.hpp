@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 09:55:55 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/03 10:34:42 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/03 17:24:44 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef RADSCORPION_HPP
+#define RADSCORPION_HPP
 
-#include "Victim.hpp"
+#include "Enemy.hpp"
 
-class Peon : public Victim
+class RadScorpion : public Enemy
 {
 private:
 	
 public:
-	Peon( std::string const &name );
-	Peon( Peon const &peonCopy );
-	~Peon();
-	Peon	&operator=( Peon const &peonValue );
-	
-	void	getPolimorphed( ) const;
-	
+	RadScorpion( );
+	RadScorpion( RadScorpion const &scorpionCopy );
+	virtual		~RadScorpion( );
+	RadScorpion	operator=( RadScorpion const &scorpionValue );
+
+	void		takeDamage( int value );
 };
 
 #endif

@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 09:55:55 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/03 10:34:25 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/03 17:20:32 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
-#include "Victim.hpp"
+#include <iostream>
+#include <string>
 
-class Peon : public Victim
+class Enemy
 {
-private:
-	
+protected:
+	std::string		m_type;
+	int				m_hp;
+
 public:
-	Peon( std::string const &name );
-	Peon( Peon const &peonCopy );
-	~Peon();
-	Peon	&operator=( Peon const &peonValue );
-	
-	void	getPolimorphed( ) const;
-	
+	Enemy( );
+	Enemy( int hp, std::string const &type );
+	Enemy( Enemy const &enemyCopy );
+	virtual			~Enemy();
+	Enemy			operator=( Enemy const &enemyValue );
+
+	std::string		getType( ) const;
+	int				getHP( ) const;
+	virtual void	takeDamage( int value );
+
 };
 
 #endif

@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 10:31:13 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 10:13:17 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/03 10:34:14 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/03 17:27:04 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-#define VICTIM_HPP
+#ifndef AWEAPON_HPP
+#define AWEAPON_HPP
 
 #include <iostream>
 #include <string>
 
-class Victim
+class AWeapon
 {
-private:
-	std::string	m_name;
-	
+protected:
+	std::string		m_name;
+	int				m_apcost;
+	int				m_damage;
+
 public:
-	//Victim( );
-	Victim( std::string const &name);
-	Victim( Victim const &victimCopy );
-	~Victim( );
-
-	Victim		&operator=( Victim const &victimValue );
-	void		setName( std::string const &newName );
-	std::string	getName( ) const;
-	void		getPolimorphed( ) const;
+	AWeapon( );
+	AWeapon( std::string const &name, int apcost, int damage );
+	AWeapon( AWeapon const &aweaponCopy );
+	virtual			~AWeapon();
+	AWeapon			&operator=( AWeapon const &aweaponValue );
+	
+	std::string		getName() const;
+	int				getAPCost() const;
+	int				getDamage() const;
+	
+	virtual void	attack( ) const = 0;
 };
-
-std::ostream	&operator<<( std::ostream &out, Victim const &victimValue );
 
 #endif

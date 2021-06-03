@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 09:55:55 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/03 10:34:32 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/03 17:29:19 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef PLASMARIFLE_HPP
+#define PLASMARIFLE_HPP
 
-#include "Victim.hpp"
+#include "AWeapon.hpp"
 
-class Peon : public Victim
+class PlasmaRifle : public AWeapon
 {
 private:
 	
 public:
-	Peon( std::string const &name );
-	Peon( Peon const &peonCopy );
-	~Peon();
-	Peon	&operator=( Peon const &peonValue );
+	PlasmaRifle();
+	PlasmaRifle( PlasmaRifle const &rifleCopy );
+	virtual		~PlasmaRifle();
 	
-	void	getPolimorphed( ) const;
-	
+	PlasmaRifle	&operator=( PlasmaRifle const &rifleValue );
+	void		attack( ) const;
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Victim.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 10:31:10 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/02 23:30:04 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/03 10:08:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,13 @@ Victim::~Victim( )
 	std::cout << "Victim " << m_name << " just died for no apparent reason!" << std::endl;
 }
 
-Victim			Victim::operator=( Victim const &victimValue )
+Victim			&Victim::operator=( Victim const &victimValue )
 {
+	if (&victimValue == this)
+		return (*this);
+
 	m_name = victimValue.m_name;
+	return (*this);
 }
 
 std::string		Victim::getName( ) const
@@ -48,8 +52,9 @@ void			Victim::getPolimorphed( ) const
 	std::cout << m_name << " has been turned into a cute little sheep!" << std::endl;
 }
 
-std::ostream	&operator<<( std::ostream out, Victim const &victimValue)
+std::ostream	&operator<<( std::ostream &out, Victim const &victimValue)
 {
 	std::cout << "I'm " << victimValue.getName() << " and I like otters!" << std::endl;
 	return (out);
 }
+//std::ostream	&operator<<( std::ostream &out, Victim const &victimValue )

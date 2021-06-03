@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 10:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 09:55:55 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/03 10:34:37 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/03 17:29:29 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
 
-#include "Victim.hpp"
+#ifndef POWERFIRST_HPP
+#define POWERFIRST_HPP
 
-class Peon : public Victim
+#include "AWeapon.hpp"
+
+class PowerFist : public AWeapon
 {
 private:
 	
 public:
-	Peon( std::string const &name );
-	Peon( Peon const &peonCopy );
-	~Peon();
-	Peon	&operator=( Peon const &peonValue );
+	PowerFist();
+	PowerFist( PowerFist const &rifleCopy );
+	virtual		~PowerFist();
 	
-	void	getPolimorphed( ) const;
-	
+	PowerFist	&operator=( PowerFist const &powerValue );
+	void		attack() const;
 };
 
 #endif

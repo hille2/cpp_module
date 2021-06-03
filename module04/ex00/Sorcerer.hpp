@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 10:31:07 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/02 23:26:55 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/03 10:14:35 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ public:
 	Sorcerer( std::string const &name, std::string const &title );
 	Sorcerer( Sorcerer const &sorcererCopy );
 	virtual ~Sorcerer();
-	Sorcerer	operator=( Sorcerer const &orcererValue );
+	Sorcerer	&operator=( Sorcerer const &orcererValue );
 
 	void		polymorph(Victim const &) const;
 	std::string	getName( );
 	std::string	getTitle( );
 };
 
-std::ostream	&operator<<(std::ostream &out, Sorcerer const &sorcererValue) ;
+std::ostream	&operator<<(std::ostream &out, Sorcerer &sorcererValue) ;
 
-#endif;
+#endif
