@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 17:07:59 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 17:22:58 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/05 22:22:48 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 public:
 	TacticalMarine( );
 	TacticalMarine( TacticalMarine const &copy );
-	~TacticalMarine();
+	virtual			~TacticalMarine();
 	TacticalMarine	&operator=( TacticalMarine const &value );
 
 	ISpaceMarine*	clone( ) const;

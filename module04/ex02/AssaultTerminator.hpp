@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AssaultTerminator.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:39:01 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 17:21:59 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/05 22:16:34 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 public:
 	AssaultTerminator( );
 	AssaultTerminator( AssaultTerminator const &copy );
-	~AssaultTerminator();
+	virtual				~AssaultTerminator();
 	AssaultTerminator	&operator=( AssaultTerminator const &value );
 
 	ISpaceMarine*		clone( ) const;

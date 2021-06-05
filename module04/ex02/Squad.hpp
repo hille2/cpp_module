@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Squad.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 17:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 17:46:53 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/05 22:16:26 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 public:
 	Squad( );
 	Squad( Squad const &copy );
-	~Squad( );
+	virtual			~Squad( );
 	Squad			&operator=( Squad const &value);
 	
 	int				getCount( ) const;
