@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 12:44:59 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 12:50:01 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 18:04:24 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "AMateria.hpp"
 
-class Ice : private AMateria
+class Ice : public AMateria
 {
 private:
 	

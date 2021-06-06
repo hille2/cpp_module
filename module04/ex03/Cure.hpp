@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 12:44:59 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 13:08:25 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 18:05:03 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "AMateria.hpp"
 
-class Cure : private AMateria
+class Cure : public AMateria
 {
 private:
 	

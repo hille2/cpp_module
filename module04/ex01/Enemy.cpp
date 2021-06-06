@@ -6,16 +6,16 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 10:34:22 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/03 17:34:15 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 19:19:10 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
 
-Enemy::Enemy( ) :									m_hp(0), m_type("No_type")
+Enemy::Enemy( ) :									m_type("No_type"), m_hp(0)
 {}
 
-Enemy::Enemy( int hp, std::string const &type ) :	m_hp(hp), m_type(type)
+Enemy::Enemy( int hp, std::string const &type ) :	m_type(type), m_hp(hp)
 {}
 
 Enemy::Enemy( Enemy const &enemyCopy ) :			m_type(enemyCopy.m_type), 

@@ -6,13 +6,13 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 13:24:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 13:50:49 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 18:05:25 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character( ) :					m_name("me"), m_plenum(0)
+Character::Character( ) :					m_name("me")
 {
 	for (int i = 0; i < VOLUME; i++)
 		m_inventory[i] = 0;
@@ -33,8 +33,9 @@ Character::Character( Character const &copy ) :	m_name(copy.m_name)
 Character::~Character( )
 {
 	for (int i = 0; i < VOLUME; i++)
-		delete m_inventory[i];
-	delete m_inventory;
+		if (m_inventory[i] != 0)
+			delete m_inventory[i];
+	//delete m_inventory;
 }
 
 Character			Character::operator=( Character const &value )
@@ -64,10 +65,12 @@ void				Character::equip( AMateria* m )
 
 void				Character::unequip( int idx )
 {
-	
+	if ( idx >= 0 && idx < VOLUME)
+		m_inventory[idx] = 0;
 }
 
-void				Character::use( int idx, ICharacter& target )
+void				Character::use( int idx, ICharacter &target )
 {
-	
+	if ( idx >= 0 && idx < VOLUME)
+		m_inventory[idx]->use(target);
 }

@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 12:33:23 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 12:44:32 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 19:15:01 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ unsigned int		AMateria::getXP( ) const
 
 void				AMateria::use ( ICharacter &target )
 {
+	(void) target;
 	m_xp += 10;
 }

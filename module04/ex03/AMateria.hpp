@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 12:21:10 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 12:58:58 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 18:13:05 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define AMATERIA_HPP
 
 #include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {

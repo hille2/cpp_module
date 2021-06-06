@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 17:10:13 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 17:14:18 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 19:16:17 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ TacticalMarine::TacticalMarine( )
 
 TacticalMarine::TacticalMarine( TacticalMarine const &copy )
 {
-	//TacticalMarine()?
+	(void)copy;
 	std::cout << "Tactical Marine ready for battle!" << std::endl;
 }
 

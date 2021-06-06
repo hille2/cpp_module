@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 12:50:09 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 13:09:56 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 18:06:21 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ Ice			&Ice::operator=( Ice const &value )
 	if (&value == this)
 		return (*this);
 	
-	m_type == value.m_type;
-	m_xp == value.m_xp;
+	m_type = value.m_type;
+	m_xp = value.m_xp;
 	return (*this);
 }
 

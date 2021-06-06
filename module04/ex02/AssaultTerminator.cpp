@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:39:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 17:07:27 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 19:15:32 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ AssaultTerminator::AssaultTerminator( )
 
 AssaultTerminator::AssaultTerminator( AssaultTerminator const &copy )
 {
-	//AssaultTerminator()?
+	(void)copy;
 	std::cout << "* copy from space *" << std::endl;
 }
 
