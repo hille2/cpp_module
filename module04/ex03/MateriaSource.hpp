@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 12:44:59 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/06 13:08:25 by sgath            ###   ########.fr       */
+/*   Created: 2021/06/06 13:20:11 by sgath             #+#    #+#             */
+/*   Updated: 2021/06/06 13:21:41 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class Cure : private AMateria
+class MateriaSource : public ICharacter
 {
 private:
-	
-public:
-	Cure( );
-	Cure( Cure const &copy );
-	virtual		~Cure( );
-	Cure			&operator=( Cure const &value );
 
-	AMateria	*clone( ) const;	
-	void		use( ICharacter &target );
-	
+public:
+	MateriaSource(/* args */);
+	~MateriaSource();
 };
 
 #endif
