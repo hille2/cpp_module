@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:12:10 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 16:37:21 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 11:53:01 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "TacticalMarine.hpp"
 #include "AssaultTerminator.hpp"
 #include "Squad.hpp"
+
+#define UNITS	50
 
 int main()
 {

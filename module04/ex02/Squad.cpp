@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 17:23:08 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/05 18:19:32 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/06 11:51:23 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 Squad::Squad( ) :					countUnits(0), units(0)
 {}
 
-Squad::Squad( Squad const &copy ) :	units(copy.units)
+Squad::Squad( Squad const &copy ) :	countUnits(copy.countUnits)
 {
 	if (countUnits > 0)
 		countUnits = 0;
-	for (int i = 0; i < countUnits; i++)
+	for (int i = 0; i < copy.countUnits; i++)
 		units[i] = copy.units[i];
 }
 
 Squad::~Squad( )
 {
-	if ( countUnits > 0)
+	if (countUnits > 0)
 	{
-		// for (int i = 0; i < countUnits; i++)
-		// 	delete units[i];
-		delete [] units;
+		for (int i = 0; i < countUnits; i++)
+			delete units[i];
+		delete units;
 	}
 }
 
@@ -60,26 +60,24 @@ int				Squad::push( ISpaceMarine *soldier )
 {
 	if ( !soldier )
 		return (0);
-	if ( !units )
-	{
-		units = new ISpaceMarine*[0];
-		units[0] = soldier;
-		countUnits ++;
-	}
 	else
 	{
-	
-		for (int i = 0; i < countUnits; i++)
-			if (units[i] == soldier)
-				return (countUnits);
-		
-		ISpaceMarine **tmp = new ISpaceMarine*[countUnits];
-		for (int i = 0; i < countUnits; i++)
-			tmp[i] = units[i];
-		delete [] units;
-		tmp[countUnits] = soldier;
-		units = tmp;
-		units[0] = soldier;
+		if (!units)
+			units = new ISpaceMarine*[0];
+		else
+		{
+			for (int i = 0; i < countUnits; i++)
+				if (units[i] == soldier)
+					return (countUnits);
+			
+			ISpaceMarine **tmp = new ISpaceMarine*[countUnits + 1];
+			for (int i = 0; i < countUnits; i++)
+				tmp[i] = units[i];
+			delete [] units;
+			tmp[countUnits] = soldier;
+			units = tmp;
+		}
+		units[countUnits] = soldier;
 		countUnits ++;
 	}
 	return (countUnits);
