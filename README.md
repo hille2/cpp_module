@@ -20,10 +20,10 @@
 ### [`C++ - Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module03) ##
 *Inheritance*
 
-[`subject for Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module04/en.module04.pdf)
+[`subject for Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module03/en.module03.pdf)
 
 ---
 ### [`C++ - Module 04`](https://github.com/hille2/piscines_Cpp/blob/master/module04) ##
 
 *Subtype polymorphism, abstract classes, interfaces*
-subject for Module 04
+[`subject for Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module04/en.module04.pdf)
