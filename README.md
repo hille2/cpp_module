@@ -1,3 +1,6 @@
+this is a C++ intensive
+---
+
 
 ### [`C++ - Module 00`](https://github.com/hille2/piscines_Cpp/blob/master/module00) ##
 *Namespace, class, member functions, stdio stream, initialization lists, static, const, and lots of basic stuf*
