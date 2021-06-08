@@ -6,13 +6,13 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:31:50 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/29 13:51:58 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/08 16:49:08 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap( std::string const name ) //: NinjaTrap(name), FragTrap(name)
+SuperTrap::SuperTrap( std::string const name ) : NinjaTrap(name), FragTrap(name)
 {
 	m_name = name;
 	m_hitPoints = FragTrap::m_hitPoints;

@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 14:10:35 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/22 18:00:14 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/07 14:37:03 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 enum FuckMagic
 {
 	SUCCESS,
-	ERROR_FAIL,
-	INCORRECT_NUMBER_OF_ARGUMENTS,
+	ERROR_FAIL = 2,
+	INCORRECT_NUMBER_OF_ARGUMENTS = 9999999,
 	EMPTY_ARGUMENT,
-	VALID_AV,
+	VALID_AV = 0,
 	FILE_DOES_NOT_OPEN,
 };
 

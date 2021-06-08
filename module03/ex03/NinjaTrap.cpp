@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:54:29 by sgath             #+#    #+#             */
-/*   Updated: 2021/05/29 10:03:09 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/08 15:24:01 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ void		NinjaTrap::ninjaShoebox( )
 	std::cout << "\033[1;33mOh. My. God. What if I'm like... a fish? And, if I'm not moving..." << std::endl <<
 	"I stop breathing? AND THEN I'LL DIE! HELP ME! HELP MEEEEE HEE HEE HEEE! HHHHHHHELP\033[0m" << std::endl;
 	std::cout << "<\033[1;92m" << m_name << "\033[0m is idle now>" << std::endl;
-	m_energyPoints += rand() % SUPER_SECRET_ATTACK;
-	if (m_energyPoints > m_maxEnergyPoints)
-		m_energyPoints = m_maxEnergyPoints;
+	ClapTrap::m_energyPoints += rand() % SUPER_SECRET_ATTACK;
+	if (ClapTrap::m_energyPoints > m_maxEnergyPoints)
+		ClapTrap::m_energyPoints = m_maxEnergyPoints;
 }
 
 void		NinjaTrap::ninjaShoebox( ClapTrap &clap )
 {
-	if (m_energyPoints - m_meleeAttackDamage < MIN)
+	if (ClapTrap::m_energyPoints - m_meleeAttackDamage < MIN)
 	{
 		std::cout << "<\033[1;92m" << m_name << "\033[0m trying to use a skill NinjaShoebox, but misses>" << std::endl;
 		std::cout << "<now it's \033[1;92m" << clap.getName() << "\033[0m turn to attack. Good luck!>" << std::endl;
@@ -79,11 +79,11 @@ void		NinjaTrap::ninjaShoebox( ClapTrap &clap )
 		takeDamage(clap.m_meleeAttackDamage);
 
 		std::cout << "<\033[1;92m" << m_name << "\033[0m drinks oil and recovers some of the energy";
-		m_energyPoints += rand() % m_meleeAttackDamage;
+		ClapTrap::m_energyPoints += rand() % m_meleeAttackDamage;
 	}
 	else
 	{
-		m_energyPoints -= m_meleeAttackDamage;
+		ClapTrap::m_energyPoints -= m_meleeAttackDamage;
 		meleeAttack(("\033[1;92m" + clap.getName() + "\033[0m"));
 		clap.takeDamage(m_meleeAttackDamage);
 	}
@@ -92,7 +92,7 @@ void		NinjaTrap::ninjaShoebox( ClapTrap &clap )
 
 void		NinjaTrap::ninjaShoebox( ScavTrap &scav )
 {
-	if (m_energyPoints - m_rangedAttackDamage < MIN)
+	if (ClapTrap::m_energyPoints - m_rangedAttackDamage < MIN)
 	{
 		std::cout << "<\033[1;92m" << m_name << "\033[0m trying to use a skill NinjaShoebox, but misses>" << std::endl;
 		std::cout << "<now it's \033[1;92m" << scav.getName() << "\033[0m turn to attack. Good luck!>" << std::endl;
@@ -103,7 +103,7 @@ void		NinjaTrap::ninjaShoebox( ScavTrap &scav )
 	}
 	else
 	{
-		m_energyPoints -= m_rangedAttackDamage;
+		ClapTrap::m_energyPoints -= m_rangedAttackDamage;
 		meleeAttack(("\033[1;92m" + scav.getName() + "\033[0m"));
 		scav.takeDamage(m_rangedAttackDamage);
 	}
@@ -112,18 +112,18 @@ void		NinjaTrap::ninjaShoebox( ScavTrap &scav )
 
 void		NinjaTrap::ninjaShoebox( FragTrap &frag )
 {
-		if (m_energyPoints - m_rangedAttackDamage < MIN)
+	if (ClapTrap::m_energyPoints - m_rangedAttackDamage < MIN)
 	{
 		std::cout << "<\033[1;92m" << m_name << "\033[0m trying to use a skill NinjaShoebox, but misses>" << std::endl;
 		std::cout << "<now it's \033[1;92m" << frag.getName() << "\033[0m turn to attack. Good luck!>" << std::endl;
 		frag.vaulthunter_dot_exe(("\033[1;92m" + m_name + "\033[0m"));
 		takeDamage(SUPER_SECRET_ATTACK);
 		std::cout << "<\033[1;92m" << m_name << "\033[0m drinks oil and recovers some of the energy";
-		m_energyPoints += rand() % SUPER_SECRET_ATTACK;
+		ClapTrap::m_energyPoints += rand() % SUPER_SECRET_ATTACK;
 	}
 	else
 	{
-		m_energyPoints -= m_rangedAttackDamage;
+		ClapTrap::m_energyPoints -= m_rangedAttackDamage;
 		meleeAttack(("\033[1;92m" + frag.getName() + "\033[0m"));
 		frag.takeDamage(m_rangedAttackDamage);
 	}
