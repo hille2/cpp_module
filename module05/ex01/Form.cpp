@@ -6,11 +6,12 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:42:49 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/08 20:41:43 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/09 10:05:37 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form( std::string doc, int sign, int execute ) :	m_impotantDoc(doc),
 														m_gradeSign(sign), 

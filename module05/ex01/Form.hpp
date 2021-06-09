@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:16:42 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 10:01:13 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/09 10:06:29 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ public:
 	int					getGrSign() const;
 	int					getGrExecute( ) const;
 	bool				getSigned( ) const;
-	void				beSigned( Bureaucrat const &b );
+	void				beSigned(Bureaucrat const &b);
 	
 };
 
