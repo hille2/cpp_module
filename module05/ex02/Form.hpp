@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:16:42 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 10:07:37 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/09 16:10:59 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,22 @@ class Bureaucrat;
 class Form
 {
 private:
-	const std::string	m_impotantDoc;
-	const int			m_gradeSign;
-	const int			m_gradeExecute;
-	bool				m_signed;
+	const std::string		m_impotantDoc;
+	const int				m_gradeSign;
+	const int				m_gradeExecute;
 	
 	Form( );
+
+protected:
+	bool					m_signed;
 
 public:
 	Form( std::string doc, int sign, int execute );
 	Form( Form const &copy );
 	~Form( );
-	Form				&operator=( Form const &value );
+	Form					&operator=( Form const &value );
 
-	class					 GradeTooHighException : public std::exception
+	class				 	GradeTooHighException : public std::exception
 	{
 		virtual const char*	what( ) const throw();
 	};
@@ -49,14 +51,20 @@ public:
 		virtual const char*	what( ) const throw();
 	};
 	
-	std::string			getDoc( ) const;
-	int					getGrSign() const;
-	int					getGrExecute( ) const;
-	bool				getSigned( ) const;
-	void				beSigned(Bureaucrat const &b);
+	class					CanNotOpenException : public std::exception
+	{
+		virtual const char*	what( ) const throw() = 0;
+	};
+	
+	virtual std::string		getDoc( ) const;
+	int						getGrSign() const;
+	int						getGrExecute( ) const;
+	bool					getSigned( ) const;
+	void					beSigned( Bureaucrat const &b );
+	void					execute( Bureaucrat const &ex );
 	
 };
 
-std::ostream			&operator<<( std::ostream &out, Form const &f );
+std::ostream				&operator<<( std::ostream &out, Form const &f );
 
 #endif

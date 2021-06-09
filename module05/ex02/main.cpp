@@ -6,34 +6,45 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:17 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 11:22:43 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/09 16:39:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-std::string name[] = {
-"\033[1;31mMichael Scott\033[0m",
-"\033[1;31mDwight Schrute\033[0m",
-"\033[1;31mJim Halpert\033[0m",
-"\033[1;31mPam Beasley\033[0m",
-"\033[1;31mRyan Howard\033[0m",
-"\033[1;31mAndy Bernard\033[0m",
-"\033[1;31mRobert California\033[0m",
-"\033[1;31mHanibal Lecturer\033[0m",
+static const std::string name[] = {
+	"\033[1;31mMichael Scott\033[0m",
+	"\033[1;31mDwight Schrute\033[0m",
+	"\033[1;31mJim Halpert\033[0m",
+	"\033[1;31mPam Beasley\033[0m",
+	"\033[1;31mRyan Howard\033[0m",
+	"\033[1;31mAndy Bernard\033[0m",
+	"\033[1;31mRobert California\033[0m",
+	"\033[1;31mHanibal Lecturer\033[0m",
 };
 
-std::string doc[] = {
-	"\033[1;32m`Planet Earth lease`\033[0m",
-	"\033[1;32m`Purchase of third legs`\033[0m",
-	"\033[1;32m`Ring finger long nail prototype`\033[0m",
-	"\033[1;32m`Free beer project for everyone`\033[0m",
-	"\033[1;32m`The bill on the creation of a soft Internet with cats`\033[0m",
+static const std::string forme [] = {
+	"\033[1;32m`1 - F`\033[0m",
+	"\033[1;32m`28 - A`\033[0m",
+	"\033[1;32m`42- CPP`\033[0m",
+	"\033[1;32m`D42`\033[0m",
+	"\033[1;32m`A 82`\033[0m",
+};
+
+static const std::string doc[] = {
+	"Planet_Earth_lease",
+	"Purchase_of_third_legs",
+	"Ring_finger_long_nail_prototype",
+	"Free_beer_project_for_everyone",
+	"The_bill_on_the_creation_of_a_soft_Internet_with_cats",
 };
 	
 
-void raiseGraide(Bureaucrat &worker)
+void	raiseGraide(Bureaucrat &worker) //ok
 {
 	std::cout << "<Want to enter an arbitrary gradation?>\n<If not press ENTER>" << std::endl;
 
@@ -54,7 +65,7 @@ void raiseGraide(Bureaucrat &worker)
 	}	
 }
 
-void	lowerGrade(Bureaucrat &worker)
+void	lowerGrade(Bureaucrat &worker) //ok
 {
 	std::cout << "<Want to enter an arbitrary gradation?>\n<If not press ENTER>" << std::endl;
 
@@ -76,26 +87,97 @@ void	lowerGrade(Bureaucrat &worker)
 }
 
 
-void addForm(Bureaucrat &worker, Form &form)
+void	addForm(Bureaucrat &worker, Form &form)
 {
-	std::cout << "<Sign the form>" << std::endl;
+	std::string command;
 
-//	std::string grade;
-//	std::getline(std::cin, grade);
-//	if ( grade == "YES" || grade == "yes" || grade == "y" || grade == "Y")
+	while(1)
+	{
+		std::cout << "<1. Sign the form>" << std::endl;
+		std::cout << "<2. Sign the Shrubbery form>" << std::endl;
+		std::cout << "<3. Sign the Presidential pardon form>" << std::endl;
+		std::cout << "<4. Sign the Robotomy request form>" << std::endl;
+		int num = rand() % (sizeof(doc) / sizeof(doc[0]));
+		std::getline(std::cin, command);
+		if (command == "1")
+		{
+			try
+			{
+				form.beSigned(worker);
+			}
+			catch(std::exception const &e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+			catch(...)
+			{
+				std::cerr << "if u see it, u - stupid\n";
+			}	
+			std::cout << form;
+			worker.singForm(form);
+		}
+		else if (command == "2")
+		{
+			ShrubberyCreationForm shub(doc[num]);
+			try
+			{
+				shub.execute(worker);
+			}
+			catch(std::exception const &e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+			catch(...)
+			{
+				std::cerr << "if u see it, u - stupid\n";
+			}
+			std::cout << shub;
+			shub.writeAsciiTrees();
+		}
+		else if (command == "3")
+		{
+			PresidentialPardonForm pardone(doc[num]);
+			try
+			{
+				pardone.execute(worker);
+				std::cout << pardone;
+			}
+			catch(std::exception const &e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+			catch(...)
+			{
+				std::cerr << "if u see it, u - stupid\n";
+			}	
+		}
+		else if (command == "4") //ok!
+		{
+			RobotomyRequestForm robot(doc[num]);
+			try
+			{
+				robot.beenRobotomized();
+				std::cout << robot;
+			}
+			catch(std::exception const &e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+			catch(...)
+			{
+				std::cerr << "if u see it, u - stupid\n";
+			}	
+		}
+		else
+		{
+			std::cout << "<Do u want exit?>" << std::endl;
+			std::cout << ">YES\t\t\t >NO" << std::endl;
+			std::getline(std::cin, command);
+			if ( command == "YES" || command == "yes" || command == "y" || command == "Y")
+				break;
+		}		
+	}
 
-		try
-		{
-			form.beSigned(worker);
-		}
-		catch(std::exception const &e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		std::cout << form;
-		worker.singForm(form);
-		
-	
 }
 
 int main()
@@ -112,9 +194,9 @@ int main()
 	try
 	{
 		Bureaucrat worker(name[num], std::atoi(grade.c_str()));
-		num = rand() % (sizeof(doc) / sizeof(doc[0]));
+		num = rand() % (sizeof(forme) / sizeof(forme[0]));
 		std::cout << "<Congratulations! you got your own bureaucrat.>" << std::endl;
-		std::cout << "<You give "<< worker.getName() << " the first order to sign the document " << doc[num] << std::endl <<
+		std::cout << "<You give "<< worker.getName() << " the first order to sign the document " << forme[num] << std::endl <<
 		"with grades for its signing, and assessment for its implementation.>" << std::endl;
 		std::string sidgGr;
 		std::string executGr;
@@ -125,7 +207,7 @@ int main()
 		std::cout << "<grade required to execute form:> ";
 		std::getline(std::cin, executGr);
 		
-		Form form(doc[num], std::atoi(sidgGr.c_str()), std::atoi(executGr.c_str()));
+		Form form(forme[num], std::atoi(sidgGr.c_str()), std::atoi(executGr.c_str()));
 		
 		while(1)
 		{
@@ -145,7 +227,6 @@ int main()
 				if ( grade == "YES" || grade == "yes" || grade == "y" || grade == "Y")
 					break;
 			}
-				
 		}
 	}
 	catch(std::exception const &e)

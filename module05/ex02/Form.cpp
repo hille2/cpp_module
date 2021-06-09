@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:42:49 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 11:21:31 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/09 16:37:56 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ Form		&Form::operator=( Form const &value )
 
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return "Form's exception: Form was signed!";
+	return "Form's exception: Form was't signed! Grade too high";
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return "Form's exception: Form was't signed!";
+	return "Form's exception: Form was't signed! Grade too low";
 }
 
 std::string			Form::getDoc() const
@@ -73,13 +73,21 @@ bool				Form::getSigned() const
 
 void				Form::beSigned(Bureaucrat const &b)
 {
-	if (b.getGrade() < POSSIBLE)
+	if (b.getGrade() < POSSIBLE )
 	{
 		m_signed = 1;
 		throw Form::GradeTooHighException();
 	}
-	else if (b.getGrade() > IMPOSSIBLE)
+	else if (b.getGrade() > IMPOSSIBLE )
 		throw Form::GradeTooLowException();
+}
+
+void				Form::execute( Bureaucrat const &ex)
+{
+	if (ex.getGrade() < m_gradeExecute)
+		throw Form::GradeTooLowException();
+	if (ex.getGrade() > m_gradeExecute)
+		throw Form::GradeTooHighException();
 }
 
 std::ostream			&operator<<( std::ostream &out, Form const &f )
