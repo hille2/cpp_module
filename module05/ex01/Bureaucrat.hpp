@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/08 19:48:30 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/08 19:51:53 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
 
 enum	Burea
 {
@@ -51,6 +52,7 @@ public:
 	void					incrementGrade( int val );
 	void					decrementGrade( );
 	void					decrementGrade( int val );
+	void					singForm( Form const &f );
 
 };
 
