@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:22 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/08 17:50:43 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/09 11:08:08 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,34 +67,47 @@ int						Bureaucrat::getGrade() const
 
 void					Bureaucrat::incrementGrade()
 {
-	m_grade++;
-	if (m_grade > LOWEST_POSSIBLE)
+	if ((m_grade - 1) > LOWEST_POSSIBLE)	
 		throw Bureaucrat::GradeTooLowException();
+	else
+		m_grade++;
+	std::cout << "\t\t\t\t<" << getName()  << "[" << getGrade() << "]" << std::endl;
 }
 
 void					Bureaucrat::incrementGrade( int val )
 {
-	m_grade += val;
-	if (m_grade > LOWEST_POSSIBLE)
+	if ((m_grade + val) > LOWEST_POSSIBLE)
 		throw Bureaucrat::GradeTooLowException();
-	else if (m_grade < HIGHEST_POSSIBLE)
+	else if ((m_grade + val) < HIGHEST_POSSIBLE)
 		throw Bureaucrat::GradeTooHighException();
+	else
+		m_grade += val;
+	std::cout << "\t\t\t\t<" << getName()  << "[" << getGrade() << "]" << std::endl;
 }
 
 void					Bureaucrat::decrementGrade()
 {
-	m_grade--;
-	if (m_grade < HIGHEST_POSSIBLE)
+	if ((m_grade - 1) < HIGHEST_POSSIBLE)
 		throw Bureaucrat::GradeTooHighException();
+	else
+		m_grade--;
+	std::cout << "\t\t\t\t<" << getName()  << "[" << getGrade() << "]" << std::endl;
 }
 
 void					Bureaucrat::decrementGrade( int val )
 {
 	m_grade -= val;
 	if (m_grade > LOWEST_POSSIBLE)
+	{
+		m_grade = 150;
 		throw Bureaucrat::GradeTooLowException();
+	}
 	else if (m_grade < HIGHEST_POSSIBLE)
+	{
+		m_grade = 0;
 		throw Bureaucrat::GradeTooHighException();
+	}
+	std::cout << "\t\t\t\t<" << getName()  << "[" << getGrade() << "]" << std::endl;
 }
 
 
