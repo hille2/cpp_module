@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:36:54 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 16:25:06 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:40:21 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,13 @@ void					ShrubberyCreationForm::writeAsciiTrees( )
 
 void					ShrubberyCreationForm::execute( Bureaucrat const &ex )
 {
+	static int sing = 0;
+
+	if (sing == 1)
+		throw Form::ReSignedException();
 	Form::execute(ex);
 	writeAsciiTrees();
+	sing = 1;
 }
 
 std::ostream			&operator<<( std::ostream &out, ShrubberyCreationForm const &val )

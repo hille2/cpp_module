@@ -6,12 +6,12 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:42:49 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 16:37:56 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:38:32 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
+#include <cmath>
 
 Form::Form( std::string doc, int sign, int execute ) :	m_impotantDoc(doc),
 														m_gradeSign(sign), 
@@ -51,6 +51,16 @@ const char*	Form::GradeTooLowException::what() const throw()
 	return "Form's exception: Form was't signed! Grade too low";
 }
 
+const char*	Form::ReSignedException::what() const throw()
+{
+	return "Form's exception: Form has already been signed!";
+}
+
+const char*	Form::NoSignedException::what() const throw()
+{
+	return "Form's exception: To use the Form, it must be signed!";
+}
+
 std::string			Form::getDoc() const
 {
 	return m_impotantDoc;	
@@ -73,21 +83,24 @@ bool				Form::getSigned() const
 
 void				Form::beSigned(Bureaucrat const &b)
 {
-	if (b.getGrade() < POSSIBLE )
+	if (m_signed == 1)
+		throw Form::ReSignedException();
+	else
 	{
+		if (b.getGrade() > m_gradeSign)
+			throw Form::GradeTooHighException();
+		else if (b.getGrade() > POSSIBLE )
+			throw Form::GradeTooLowException();
 		m_signed = 1;
-		throw Form::GradeTooHighException();
+		std::cout << m_signed << std::endl;
 	}
-	else if (b.getGrade() > IMPOSSIBLE )
-		throw Form::GradeTooLowException();
 }
 
 void				Form::execute( Bureaucrat const &ex)
 {
-	if (ex.getGrade() < m_gradeExecute)
-		throw Form::GradeTooLowException();
-	if (ex.getGrade() > m_gradeExecute)
-		throw Form::GradeTooHighException();
+	std::cout << m_signed << std::endl;
+	if (ex.getGrade() > POSSIBLE)
+			throw Form::GradeTooLowException();
 }
 
 std::ostream			&operator<<( std::ostream &out, Form const &f )

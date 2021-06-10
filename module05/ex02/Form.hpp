@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:16:42 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 16:10:59 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:00:57 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 
 enum FormShmorm
 {
-	POSSIBLE = 42,
-	IMPOSSIBLE = 121,
+	POSSIBLE = 62,
 };
 
 class Bureaucrat;
@@ -54,6 +53,16 @@ public:
 	class					CanNotOpenException : public std::exception
 	{
 		virtual const char*	what( ) const throw() = 0;
+	};
+	
+	class					ReSignedException : public std::exception
+	{
+		virtual const char*	what( ) const throw();
+	};
+	
+	class					NoSignedException : public std::exception
+	{
+		virtual const char*	what( ) const throw();
 	};
 	
 	virtual std::string		getDoc( ) const;

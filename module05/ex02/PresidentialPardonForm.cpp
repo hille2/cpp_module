@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:33:28 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 16:22:17 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:41:49 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ std::string				PresidentialPardonForm::getDoc( ) const
 
 void PresidentialPardonForm::pardonedbyZafodBeeblebrox()
 {
-	std::ofstream	file(m_target.append("_shrubbery"), std::ios::out | std::ios::trunc);
+	static int sing = 0;
+	if (sing == 1)
+		throw Form::ReSignedException();
+
+	std::ofstream	file("pandon", std::ios::out | std::ios::trunc);
 	if (!file.is_open() || file.bad())
 		throw PresidentialPardonForm::CanNotOpenException();
 	Form::m_signed = 1;
@@ -64,6 +68,7 @@ void PresidentialPardonForm::pardonedbyZafodBeeblebrox()
 	{
 			file << m_pardon << std::endl;
 	}
+	sing = 1;
 }
 
 void					PresidentialPardonForm::execute( Bureaucrat const &ex )

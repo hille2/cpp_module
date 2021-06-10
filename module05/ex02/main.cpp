@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:17 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 16:39:12 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:43:11 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	addForm(Bureaucrat &worker, Form &form)
 			try
 			{
 				form.beSigned(worker);
+				worker.singForm(form);
 			}
 			catch(std::exception const &e)
 			{
@@ -114,7 +115,6 @@ void	addForm(Bureaucrat &worker, Form &form)
 				std::cerr << "if u see it, u - stupid\n";
 			}	
 			std::cout << form;
-			worker.singForm(form);
 		}
 		else if (command == "2")
 		{
@@ -122,6 +122,7 @@ void	addForm(Bureaucrat &worker, Form &form)
 			try
 			{
 				shub.execute(worker);
+				shub.writeAsciiTrees();
 			}
 			catch(std::exception const &e)
 			{
@@ -132,7 +133,6 @@ void	addForm(Bureaucrat &worker, Form &form)
 				std::cerr << "if u see it, u - stupid\n";
 			}
 			std::cout << shub;
-			shub.writeAsciiTrees();
 		}
 		else if (command == "3")
 		{
@@ -211,7 +211,7 @@ int main()
 		
 		while(1)
 		{
-			std::cout << "\033[1;42mChose: 1.raise\t\t 2.lower\t\t 3.form\033[0m" << std::endl;
+			std::cout << "\033[1;42mChose:\t\t 1.raise\t\t 2.lower\t\t 3.form\033[0m" << std::endl;
 			std::getline(std::cin, grade);
 			if (grade == "1")
 				raiseGraide(worker);

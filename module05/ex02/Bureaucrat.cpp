@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:22 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 11:23:57 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 10:50:52 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void 					Bureaucrat::singForm( Form const &f )
 	}
 	else
 	{
-		if (getGrade() > IMPOSSIBLE)
+		if (getGrade() > POSSIBLE)
 		{
 			std::cout << "*frrrrrrr*" << std::endl << f.getDoc() <<
 			" was flared!\n Gtade " << m_name << " too low :(" << std::endl;
