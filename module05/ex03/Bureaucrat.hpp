@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 16:44:12 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 19:43:34 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ public:
 	Bureaucrat( Bureaucrat const &copy );
 	virtual					~Bureaucrat( );
 	Bureaucrat				&operator=( Bureaucrat const &value );
+	Bureaucrat				&operator=( Bureaucrat const &v );
 
 	class					 GradeTooHighException : public std::exception
 	{

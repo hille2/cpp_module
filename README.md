@@ -31,3 +31,17 @@ this is a C++ intensive
 *Subtype polymorphism, abstract classes, interfaces*
 
 [`subject for Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module04/en.module04.pdf)
+
+---
+### [`C++ - Module 05`](https://github.com/hille2/piscines_Cpp/blob/master/module05) ##
+
+*Exception Handling, exceptions, functions, and stack unwrapping*
+
+[`subject for Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module05/en.module05.pdf)
+
+---
+### [`C++ - Module 06`](https://github.com/hille2/piscines_Cpp/blob/master/module06) ##
+
+*E*
+
+[`subject for Module 03`](https://github.com/hille2/piscines_Cpp/blob/master/module06/en.module06.pdf)
