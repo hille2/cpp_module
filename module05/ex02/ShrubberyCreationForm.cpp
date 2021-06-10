@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:36:54 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 11:40:21 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:56:33 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ std::string const		ShrubberyCreationForm::m_tree[] =
 //check this: https://ascii.co.uk/art/tree
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string const &target ) :
-																Form("Shrubbery", m_gradeSign, m_gradeExecute),
+																Form("DOC", m_gradeSign, m_gradeExecute),
 																m_target(target)
 																		
 {}
@@ -79,10 +79,10 @@ std::string				ShrubberyCreationForm::getDoc( ) const
 
 void					ShrubberyCreationForm::writeAsciiTrees( )
 {
-	std::ofstream	file(m_target.append("_shrubbery"), std::ios::out | std::ios::trunc);
+	std::ofstream	file(Form::getDoc() + "_shrubbery", std::ios::out | std::ios::trunc);
 	if (!file.is_open() || file.bad())
 		throw ShrubberyCreationForm::CanNotOpenException();
-	Form::m_signed = 1;
+	m_signed = 1;
 	int countTree = sizeof(m_tree) / sizeof(m_tree[0]);
 	int num = rand() % 4;
 	for (int j = 0; j < num; j++)
