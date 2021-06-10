@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:17 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 12:22:46 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 12:20:26 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,12 @@ void	addForm(Bureaucrat &worker, Form &form)
 
 }
 
+void	workIntern(Bureaucrat &worker, Form &form)
+{
+	(void)worker;
+	(void)form;
+}
+
 int main()
 {
 	srand(static_cast<unsigned int>(time(0)));
@@ -236,6 +242,7 @@ int main()
 		while(1)
 		{
 			std::cout << "\033[1;42mChose:\t\t 1.raise\t\t 2.lower\t\t 3.form\033[0m" << std::endl;
+			std::cout << "4. or make the intern do everything for us?" << std::endl;
 			std::getline(std::cin, grade);
 			if (grade == "1")
 				raiseGraide(worker);
@@ -243,6 +250,8 @@ int main()
 				lowerGrade(worker);
 			else if (grade == "3")
 				addForm(worker, form);
+			else if (grade == "4")
+				workIntern(worker, form);
 			else
 				if (wantExit())
 					break;	
