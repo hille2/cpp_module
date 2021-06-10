@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:20 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 10:07:09 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 16:44:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ public:
 	void					incrementGrade( int val );
 	void					decrementGrade( );
 	void					decrementGrade( int val );
-	void					singForm(Form const &f);
+	void					signForm(Form const &f);
+	void					executeForm(Form const & form);
 
 };
 

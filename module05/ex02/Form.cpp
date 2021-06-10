@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:42:49 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 11:38:32 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 13:53:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,16 @@ void				Form::beSigned(Bureaucrat const &b)
 			throw Form::GradeTooHighException();
 		else if (b.getGrade() > POSSIBLE )
 			throw Form::GradeTooLowException();
-		m_signed = 1;
 		std::cout << m_signed << std::endl;
 	}
+	m_signed = 1;
 }
 
 void				Form::execute( Bureaucrat const &ex)
 {
 	std::cout << m_signed << std::endl;
+	if (m_signed == 0)
+		Form::NoSignedException();
 	if (ex.getGrade() > POSSIBLE)
 			throw Form::GradeTooLowException();
 }

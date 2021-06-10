@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:17 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 12:22:46 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 16:44:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,8 @@ void	command1(Bureaucrat &worker, Form &form)
 	try
 	{
 		form.beSigned(worker);
-		worker.singForm(form);
+		worker.signForm(form);
+		std::cout << form;
 	}
 	catch(std::exception const &e)
 	{
@@ -114,7 +115,6 @@ void	command1(Bureaucrat &worker, Form &form)
 	{
 		std::cerr << "if u see it, u - stupid\n";
 	}	
-	std::cout << form;
 }
 
 void	command2(Bureaucrat &worker)
@@ -124,8 +124,9 @@ void	command2(Bureaucrat &worker)
 	ShrubberyCreationForm shub(doc[num]);
 	try
 	{
-		shub.execute(worker);
+		worker.executeForm(shub);
 		shub.writeAsciiTrees();
+		std::cout << shub;
 	}
 	catch(std::exception const &e)
 	{
@@ -135,7 +136,6 @@ void	command2(Bureaucrat &worker)
 	{
 		std::cerr << "if u see it, u - stupid\n";
 	}
-	std::cout << shub;
 }
 
 void	command3(Bureaucrat &worker)
@@ -145,7 +145,8 @@ void	command3(Bureaucrat &worker)
 	PresidentialPardonForm pardone(doc[num]);
 	try
 	{
-		pardone.execute(worker);
+		worker.executeForm(pardone);
+		pardone.pardonedbyZafodBeeblebrox();
 		std::cout << pardone;
 	}
 	catch(std::exception const &e)
@@ -158,13 +159,14 @@ void	command3(Bureaucrat &worker)
 	}	
 }
 
-void	command4()
+void	command4(Bureaucrat &worker)
 {
 	int num = rand() % (sizeof(doc) / sizeof(doc[0]));
 
 	RobotomyRequestForm robot(doc[num]);
 	try
 	{
+		worker.executeForm(robot);
 		robot.beenRobotomized();
 		std::cout << robot;
 	}
@@ -196,7 +198,7 @@ void	addForm(Bureaucrat &worker, Form &form)
 		else if (command == "3")
 			command3(worker);
 		else if (command == "4") //ok!
-			command4();
+			command4(worker);
 		else
 			if (wantExit())
 				break;	
@@ -243,6 +245,7 @@ int main()
 				lowerGrade(worker);
 			else if (grade == "3")
 				addForm(worker, form);
+			
 			else
 				if (wantExit())
 					break;	

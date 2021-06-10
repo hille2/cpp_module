@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:36:54 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 12:25:19 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 13:58:59 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@ std::string				ShrubberyCreationForm::getDoc( ) const
 
 void					ShrubberyCreationForm::writeAsciiTrees( )
 {
+	static int sing = 0;
+	if (sing == 1)
+	{
+		m_signed = sing;
+		throw Form::ReSignedException();
+	}
+	sing = 1;
+		
 	std::ofstream	file(m_target + "_shrubbery", std::ios::out | std::ios::trunc);
 	if (!file.is_open() || file.bad())
 		throw ShrubberyCreationForm::CanNotOpenException();
@@ -90,17 +98,6 @@ void					ShrubberyCreationForm::writeAsciiTrees( )
 		for (int i = 0; i < countTree; i++)
 			file << m_tree[i] << std::endl;
 	}
-}
-
-void					ShrubberyCreationForm::execute( Bureaucrat const &ex )
-{
-	static int sing = 0;
-
-	if (sing == 1)
-		throw Form::ReSignedException();
-	Form::execute(ex);
-	writeAsciiTrees();
-	sing = 1;
 }
 
 std::ostream			&operator<<( std::ostream &out, ShrubberyCreationForm const &val )

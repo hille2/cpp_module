@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:33:28 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 11:41:49 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 14:22:18 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "PresidentialPardonForm.hpp"
 
 std::string const	PresidentialPardonForm::m_pardon =
-	"╔═══╗╔═══╗╔════╗╔═╗─╔╗     ╔═══╗╔═══╗╔═╗─╔╗╔══╗╔═══╗\n"
-	"╚╗╔╗║║╔═╗║║╔╗╔╗║║║╚╗║║     ║╔═╗║║╔═╗║║║╚╗║║╚╣─╝║╔═╗║\n"
-	"─║║║║║║─║║╚╝║║╚╝║╔╗╚╝║     ║╚═╝║║║─║║║╔╗╚╝║─║║─║║─╚╝\n"
-	"─║║║║║║─║║──║║──║║╚╗║║     ║╔══╝║╚═╝║║║╚╗║║─║║─║║─╔╗\n"
-	"╔╝╚╝║║╚═╝║──║║──║║─║║║     ║║───║╔═╗║║║─║║║╔╣─╗║╚═╝║\n"
-	"╚═══╝╚═══╝──╚╝──╚╝─╚═╝     ╚╝───╚╝─╚╝╚╝─╚═╝╚══╝╚═══╝\n";
+	"╔═══╗╔═══╗╔════╗╔╗╔═╗─╔╗     ╔═══╗╔═══╗╔═╗─╔╗╔══╗╔═══╗\n"
+	"╚╗╔╗║║╔═╗║║╔╗╔╗║╚╝║║╚╗║║     ║╔═╗║║╔═╗║║║╚╗║║╚╣─╝║╔═╗║\n"
+	"─║║║║║║─║║╚╝║║╚╝──║╔╗╚╝║     ║╚═╝║║║─║║║╔╗╚╝║─║║─║║─╚╝\n"
+	"─║║║║║║─║║──║║────║║╚╗║║     ║╔══╝║╚═╝║║║╚╗║║─║║─║║─╔╗\n"
+	"╔╝╚╝║║╚═╝║──║║────║║─║║║     ║║───║╔═╗║║║─║║║╔╣─╗║╚═╝║\n"
+	"╚═══╝╚═══╝──╚╝────╚╝─╚═╝     ╚╝───╚╝─╚╝╚╝─╚═╝╚══╝╚═══╝\n";
 
 
 PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) :
@@ -56,7 +56,11 @@ void PresidentialPardonForm::pardonedbyZafodBeeblebrox()
 {
 	static int sing = 0;
 	if (sing == 1)
+	{
+		m_signed = sing;
 		throw Form::ReSignedException();
+	}
+	sing = 1;
 
 	std::ofstream	file("pandon", std::ios::out | std::ios::trunc);
 	if (!file.is_open() || file.bad())
@@ -68,13 +72,6 @@ void PresidentialPardonForm::pardonedbyZafodBeeblebrox()
 	{
 			file << m_pardon << std::endl;
 	}
-	sing = 1;
-}
-
-void					PresidentialPardonForm::execute( Bureaucrat const &ex )
-{
-	Form::execute(ex);
-	pardonedbyZafodBeeblebrox();
 }
 
 std::ostream			&operator<<( std::ostream &out, PresidentialPardonForm const &val )

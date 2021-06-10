@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:22 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 11:23:57 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 16:44:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void					Bureaucrat::decrementGrade( int val )
 	std::cout << "\t\t\t\t<" << getName()  << "[" << getGrade() << "]" << std::endl;
 }
 
-void 					Bureaucrat::singForm( Form const &f )
+void 					Bureaucrat::signForm( Form const &f )
 {
 	if (f.getSigned() == true)  
 	{

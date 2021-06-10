@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:33:36 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 16:18:45 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 13:49:55 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ public:
 
 	virtual std::string			getDoc( ) const;
 	void						writeAsciiTrees();
-	void						execute( Bureaucrat const &ex );
 
 };
 

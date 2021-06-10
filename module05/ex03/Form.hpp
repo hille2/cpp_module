@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 18:16:42 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 11:00:57 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 16:56:14 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ protected:
 public:
 	Form( std::string doc, int sign, int execute );
 	Form( Form const &copy );
-	~Form( );
+	virtual					~Form( );
 	Form					&operator=( Form const &value );
 
 	class				 	GradeTooHighException : public std::exception
@@ -70,7 +70,7 @@ public:
 	int						getGrExecute( ) const;
 	bool					getSigned( ) const;
 	void					beSigned( Bureaucrat const &b );
-	void					execute( Bureaucrat const &ex );
+	virtual void			execute( Bureaucrat const &ex );
 	
 };
 

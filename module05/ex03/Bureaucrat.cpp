@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:22 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 10:50:52 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 16:57:24 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,24 +110,18 @@ void					Bureaucrat::decrementGrade( int val )
 	std::cout << "\t\t\t\t<" << getName()  << "[" << getGrade() << "]" << std::endl;
 }
 
-void 					Bureaucrat::singForm( Form const &f )
+void 					Bureaucrat::signForm( Form const &f )
 {
-	if (f.getSigned() == true)  
-	{
-		std::cout << "*peak-peak*" << std::endl << getName() <<
-		" signs " << f.getDoc() << std::endl;
-	}
-	else
-	{
-		if (getGrade() > POSSIBLE)
-		{
-			std::cout << "*frrrrrrr*" << std::endl << f.getDoc() <<
-			" was flared!\n Gtade " << m_name << " too low :(" << std::endl;
-		}
-		else
-			std::cout << getName() << "looks at the " << f.getDoc() << 
-			" and does not know what to do with it" << std::endl;
-	}
+	(void)f; 
+	std::cout << "*peak-peak*" << std::endl;
+	std::cout  << *this << "<" << getName() << " trying to sign forms and see:\n";
+}
+
+void					Bureaucrat::executeForm( Form const &form )
+{
+	(void)form; 
+	std::cout  << *this << "<" << getName() << " trying to execute forms and see:\n";
+	//std::cout << ">";
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:17 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 12:20:26 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 18:22:59 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 static const std::string name[] = {
 	"\033[1;31mMichael Scott\033[0m",
@@ -104,7 +105,8 @@ void	command1(Bureaucrat &worker, Form &form)
 	try
 	{
 		form.beSigned(worker);
-		worker.singForm(form);
+		worker.signForm(form);
+		std::cout << form;
 	}
 	catch(std::exception const &e)
 	{
@@ -114,7 +116,6 @@ void	command1(Bureaucrat &worker, Form &form)
 	{
 		std::cerr << "if u see it, u - stupid\n";
 	}	
-	std::cout << form;
 }
 
 void	command2(Bureaucrat &worker)
@@ -124,8 +125,9 @@ void	command2(Bureaucrat &worker)
 	ShrubberyCreationForm shub(doc[num]);
 	try
 	{
-		shub.execute(worker);
+		worker.executeForm(shub);
 		shub.writeAsciiTrees();
+		std::cout << shub;
 	}
 	catch(std::exception const &e)
 	{
@@ -135,7 +137,6 @@ void	command2(Bureaucrat &worker)
 	{
 		std::cerr << "if u see it, u - stupid\n";
 	}
-	std::cout << shub;
 }
 
 void	command3(Bureaucrat &worker)
@@ -145,7 +146,8 @@ void	command3(Bureaucrat &worker)
 	PresidentialPardonForm pardone(doc[num]);
 	try
 	{
-		pardone.execute(worker);
+		worker.executeForm(pardone);
+		pardone.pardonedbyZafodBeeblebrox();
 		std::cout << pardone;
 	}
 	catch(std::exception const &e)
@@ -158,13 +160,14 @@ void	command3(Bureaucrat &worker)
 	}	
 }
 
-void	command4()
+void	command4(Bureaucrat &worker)
 {
 	int num = rand() % (sizeof(doc) / sizeof(doc[0]));
 
 	RobotomyRequestForm robot(doc[num]);
 	try
 	{
+		worker.executeForm(robot);
 		robot.beenRobotomized();
 		std::cout << robot;
 	}
@@ -195,8 +198,8 @@ void	addForm(Bureaucrat &worker, Form &form)
 			command2(worker);
 		else if (command == "3")
 			command3(worker);
-		else if (command == "4") //ok!
-			command4();
+		else if (command == "4")
+			command4(worker);
 		else
 			if (wantExit())
 				break;	
@@ -204,10 +207,57 @@ void	addForm(Bureaucrat &worker, Form &form)
 
 }
 
-void	workIntern(Bureaucrat &worker, Form &form)
+void	makeForme( Intern &bob, std::string name )
 {
-	(void)worker;
-	(void)form;
+	int num = rand() % (sizeof(doc) / sizeof(doc[0]));
+
+	
+	try
+	{
+		Form *f = bob.makeForm(name, doc[num]);
+		std::cout << *f; 
+	
+		delete f;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
+
+void	workIntern(Bureaucrat &b)
+{
+	std::string command;
+
+	Intern bob;
+
+	(void)b;
+	std::cout << "<You can get the intern to fill out a bunch of papers, \nlet's have some fun!>" << std::endl;
+	std::cout << "<what are we going to fill in?>" << std::endl;
+	std::cout << ">1. ShrubberyCreationForm" << std::endl;
+	std::cout << ">2. PresidentialPardonForm" << std::endl;
+	std::cout << ">3. RobotomyRequestForm" << std::endl;
+	std::cout << ">4. All?" << std::endl;
+	std::cout << ">5. Do you want to enter the type yourself?" << std::endl;
+	std::getline(std::cin, command);
+	if (command == "1")
+		makeForme(bob, "ShrubberyCreationForm");
+	else if (command == "2")
+		makeForme(bob, "PresidentialPardonForm");
+	else if (command == "3")
+		makeForme(bob, "RobotomyRequestForm");
+	else if (command == "4")
+	{
+		makeForme(bob, "ShrubberyCreationForm");
+		makeForme(bob, "PresidentialPardonForm");
+		makeForme(bob, "RobotomyRequestForm");
+	}
+	else if (command == "5")
+	{
+		std::cout << ">enter type: " << std::endl;
+		std::getline(std::cin, command);
+		makeForme(bob, command);
+	}
 }
 
 int main()
@@ -242,7 +292,7 @@ int main()
 		while(1)
 		{
 			std::cout << "\033[1;42mChose:\t\t 1.raise\t\t 2.lower\t\t 3.form\033[0m" << std::endl;
-			std::cout << "4. or make the intern do everything for us?" << std::endl;
+			std::cout << "\033[1;42m4. or make the intern do everything for us?\033[0m" << std::endl;
 			std::getline(std::cin, grade);
 			if (grade == "1")
 				raiseGraide(worker);
@@ -251,7 +301,7 @@ int main()
 			else if (grade == "3")
 				addForm(worker, form);
 			else if (grade == "4")
-				workIntern(worker, form);
+				workIntern(worker);
 			else
 				if (wantExit())
 					break;	

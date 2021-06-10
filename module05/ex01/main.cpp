@@ -6,7 +6,7 @@
 /*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:40:17 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/09 11:30:20 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/10 16:44:12 by sgath            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void addForm(Bureaucrat &worker, Form &form)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << form;
-	worker.singForm(form);
+	worker.signForm(form);
 		
 	
 }
