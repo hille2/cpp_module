@@ -6,11 +6,11 @@
 #    By: yu <yu@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 11:15:19 by sgath             #+#    #+#              #
-#    Updated: 2021/06/20 17:18:14 by yu               ###   ########.fr        #
+#    Updated: 2021/06/20 18:31:39 by yu               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		main.cpp
+SRCS =		main.cpp \
 			Array.cpp
 
 INCLUDES =	Array.hpp

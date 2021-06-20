@@ -6,7 +6,7 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/20 17:20:54 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/20 18:18:26 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ public:
 	class	ElementIsOutOfTheLimits : public std::exception
 	{
 		virtual const char*	what( ) const throw();
-	};	
+	};
+
+	int		getLen();
+	T		getArray();
+	void	setArray(T const &elem, int i);
 	
 };
 

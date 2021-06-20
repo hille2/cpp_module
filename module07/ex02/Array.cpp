@@ -6,55 +6,95 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/20 17:15:25 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/20 18:31:13 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-Array::Array( ) :				m_len(0), m_elem(new T[len])
+template<typename T>
+Array<T>::Array( ) :			m_len(0), m_elem(new T[m_len])
 {}
 
-Array::Array( const int n) :	m_len(n), m_elem(new T[len])
-{}
+template<typename T>
+Array<T>::Array( const int n) :	m_len(n)
+{
+	if (m_len < 0)
+		throw ElementIsOutOfTheLimits();
+	
+	m_elem = new T[m_len];	
+}
 
-Array::Array( Array const &copy )
+template<typename T>
+Array<T>::Array( Array const &copy )
 {
 	m_len = copy.m_len;
 	if (m_len < 0)
-		throw();
+		throw ElementIsOutOfTheLimits();
+
+	delete [] m_elem;
+	m_elem =nullptr;
 	m_elem = new T[m_len];
-	for( int i = 0; i < len; i++)
+	for( int i = 0; i < m_len; i++)
 		m_elem[i] = copy.m_elem[i];
 }
 
-Array::~Array()
+template<typename T>
+Array<T>::~Array()
 {
-	delite [] m_elem;
+	delete [] m_elem;
+	m_elem =nullptr;
 }
-	
-Array::Array	&operator=( Array const &value )
+
+template<typename T>	
+Array<T>	&Array<T>::operator=( Array const &value )
 {
 	if (this == &value)
 		return *this;
 		
 	m_len = value.m_len;
 	if (m_len < 0)
-		throw();
+		throw ElementIsOutOfTheLimits();
 	m_elem = new T[m_len];
-	for( int i = 0; i < len; i++)
+	for( int i = 0; i < m_len; i++)
 		m_elem[i] = value.m_elem[i];
 }
 
-T		&Array::operator[]( Array const &i )
+template<typename T>
+T			&Array<T>::operator[]( Array const &i )
 {
 	if (i < 0 || i >= m_len)
-		throw();
+		throw ElementIsOutOfTheLimits();
 	return m_elem[i];
 }
 
-const char*	Array::ElementIsOutOfTheLimit::what( ) const throw()
+template<typename T>
+const char*	Array<T>::ElementIsOutOfTheLimits::what( ) const throw()
 {
 	return "Error:\nThis element is out of the limits";
 }
 
+template<typename T>
+int			Array<T>::getLen()
+{
+	return m_len;
+}
+
+template<typename T>
+T			Array<T>::getArray()
+{
+	T	tmp;
+
+	for (int i = 0; i < m_len; i++)
+		tmp[i] = m_elem[i];
+	return tmp;
+}
+
+template<typename T>
+void		Array<T>::setArray(T const &elem, int i)
+{
+	if (i > 0 || i >= m_len)
+		throw ElementIsOutOfTheLimits();
+	
+	m_elem[i] = elem;
+}
