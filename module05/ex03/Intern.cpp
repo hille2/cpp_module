@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgath <sgath@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 14:31:04 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/10 18:41:03 by sgath            ###   ########.fr       */
+/*   Updated: 2021/06/18 09:34:10 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ Form		*Intern::makeForm( std::string const &form, std::string const &target )
 	throw NonExistentFormException();
 }
 
-Form	*createShrubberyCreationForm( std::string const &target )
+Form		*createShrubberyCreationForm( std::string const &target )
 {
 	return new ShrubberyCreationForm(target);
 }
 
-Form	*createPresidentialPardonForm( std::string const &target )
+Form		*createPresidentialPardonForm( std::string const &target )
 {
 	return new PresidentialPardonForm(target);
 }
 
-Form	*createRobotomyRequestForm( std::string const &target )
+Form		*createRobotomyRequestForm( std::string const &target )
 {
 	return new RobotomyRequestForm(target);
 }

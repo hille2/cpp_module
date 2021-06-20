@@ -35,7 +35,8 @@ void	*serialize(void)
 	 	std::cout << data[i + LEN];
 	}
 	int num = rand() % INT32_MAX;
-	*(reinterpret_cast<int*>(data + LEN  + LEN) )= num;
+	//int num = 9999;
+	*reinterpret_cast<int*>(data + LEN  + LEN) = num;
 	std::cout << "\nrandom integer:\t\t\t\t\t " << num << std::endl;
 	
 	std:: cout << "---------------" << std::endl;
@@ -51,7 +52,7 @@ Data	*deserialize(void *raw)
 	std::cout << "pointer to a random string:\t\t\t " << data->rand_pointer1 << std::endl;
 	data->rand_pointer2 = std::string(reinterpret_cast<char*>(raw) + LEN, LEN);
 	std::cout << "second pointer to a second random string:\t " << data->rand_pointer2 << std::endl;
-	data->num = *(reinterpret_cast<int*>(raw) + LEN + LEN);
+	data->num = *reinterpret_cast<int*>((static_cast<char*>(raw)) + LEN + LEN);
 	std::cout << "random integer:\t\t\t\t\t " << data->num << std::endl;
 
 	std:: cout << "---------------" << std::endl;
