@@ -6,14 +6,14 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/20 18:31:13 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/20 20:03:45 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 template<typename T>
-Array<T>::Array( ) :			m_len(0), m_elem(new T[m_len])
+Array<T>::Array( ) :   m_len(0), m_elem(nullptr)
 {}
 
 template<typename T>

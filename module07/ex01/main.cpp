@@ -6,7 +6,7 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/20 15:32:31 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/20 17:46:33 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ int		main()
 	while (true)
 	{
 		std::cout << "<select data type>" << std::endl;
-		std::cout << "> 1. int" << std::endl; //ok
+		std::cout << "> 1. int" << std::endl; 
 		std::cout << "> 2. float" << std::endl;
 		std::cout << "> 3. double" << std::endl;
-		std::cout << "> 4. char" << std::endl; //ok
-		std::cout << "> 5. string" << std::endl; //ok
+		std::cout << "> 4. char" << std::endl; 
+		std::cout << "> 5. string" << std::endl;
 		
 		std::getline(std::cin, command);
-		
+	
 		if (command == "1")
 			iter(&arrayInt, (sizeof(arrayInt) / sizeof(int)), printAdress);
 		else if (command == "2")
