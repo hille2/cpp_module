@@ -6,7 +6,7 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/28 13:04:47 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/28 13:20:17 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
 		{
 			for (int i = 0; i < num; i++)
 			{
-				int r = rand() % INT8_MAX;
+				int r = rand() % MAX_INT8;
 				std::cout << "<we add: " << r << ">" << std::endl;
 				boo.addNumber(r);
 				usleep(15);

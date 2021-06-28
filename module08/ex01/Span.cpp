@@ -6,7 +6,7 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/28 10:39:12 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/28 13:19:27 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			Span::superAdd( const int count, ... )
 		int num = va_arg(list, int);
 		std::cout << "<we add: " << num << ">\n";
 		m_multisetNum.insert(num);
-		if (x > m_num)
+		if (x > (int)m_num)
 		{
 			va_end(list);
 			throw Span::ElementIsFull();
@@ -80,7 +80,7 @@ unsigned int	Span::shortestSpan()
 
 	std::multiset<int>::iterator one = m_multisetNum.begin();
 	std::multiset<int>::iterator two = one++;
-	unsigned int shortest = INT32_MAX;
+	unsigned int shortest = MAX_INT32;
 	unsigned int tmp = abs(*one - *two);
 	for (int i = 0; i < size - 1; i++)
 	{
@@ -100,7 +100,6 @@ unsigned int	Span::longestSpan()
 
 	std::multiset<int>::iterator max = std::max_element(m_multisetNum.begin(), m_multisetNum.end());
 	std::multiset<int>::iterator min = std::min_element(m_multisetNum.begin(), m_multisetNum.end());
-	unsigned int longest = INT32_MIN;
 
 	return *max - *min;
 }

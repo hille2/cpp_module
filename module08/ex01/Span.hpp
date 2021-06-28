@@ -6,7 +6,7 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/28 10:27:34 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/28 13:19:56 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <set>
 #include <algorithm>
 #include <cstdarg>
+
+#define MAX_INT32 2147483647
+#define MAX_INT8 127
 
 class	Span
 {

@@ -6,7 +6,7 @@
 /*   By: yu <yu@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 11:15:19 by sgath             #+#    #+#             */
-/*   Updated: 2021/06/28 13:00:19 by yu               ###   ########.fr       */
+/*   Updated: 2021/06/28 13:22:59 by yu               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 		std::getline(std::cin, command);
 		if (command == "1")
 		{
-			int num = rand() % INT8_MAX;
+			int num = rand() % MAX_INT8;
 			std::cout << "push : " << num << std::endl;
 			mstack.push(num);
 		}

@@ -45,7 +45,7 @@ public:
 		if (this == &value)
 			return *this;
 		
-		m_length = value.m_len;
+		m_length = value.m_length;
 		if (m_length < 0)
 			throw ElementIsOutOfTheLimits();
 		m_data = new T[m_length];
